@@ -1,0 +1,662 @@
+@use '../mixins/fluid-size' as size;
+@use '../mixins/disable-mob-hover' as mobile;
+
+/* properties for card */
+.card-properties {
+    --card-space-max: calc(var(--scale) * 1.2);
+    --card-space-min: calc(var(--scale) * 0.8);
+	--card-radius: var(--radius-medium);
+	--card-img-radius: var(--radius-small);
+    --card-coach-icon-size: 15px;
+    
+    display: flex;
+    flex-direction: column;
+    transition: var(--fast);
+    position: relative;
+    background-color: var(--white);
+    overflow: hidden;
+
+    /* карточка с тенью */
+    &.shadow {
+        box-shadow: var(--shadow-default);
+    }
+
+    /* карточка темная */
+    &.dark {
+        background-color: var(--black-blue);
+    }
+    
+    /* карточка серая */
+    &.gray {
+        background-color: var(--gray-light);
+    }
+
+    /* карточка темная с блюр эффектом */
+    &.blured {
+        backdrop-filter: blur(12px);
+        background: rgba(87, 104, 134, 0.01);
+
+        [class*='__body'] {
+            color: var(--white);
+
+            .accent {
+                @include size.calculate(font-size, 480px, 1600px, 24px, 30px);
+            }
+        }
+
+        [class*='__num']::after {
+            background-color: var(--gray-blue);
+        }
+    }
+
+    /* карточка центрированная */
+    &.centered {
+        > * {
+            text-align: center;
+        }
+    }
+
+    /* карточка с рамкой */
+    &.bordered {
+        border: 1px solid var(--beige-accent);
+    }
+
+    /* c высотой 100%*/
+    &.auto {
+        height: 100%
+    }
+}
+
+/* карточка нумерованная */
+.card {
+    @extend .card-properties;
+
+    @include size.calculate(gap, 480px, 1460px, 14px, 20px);
+    @include size.calculate(padding, 480px, 1460px, 22px, 30px);
+    background-color: var(--white);
+
+    &__num {
+        position: relative;
+        @include size.calculate(font-size, 480px, 1460px, 14px, 20px);
+        font-weight: 600;
+        line-height: 1;
+        color: var(--beige-accent);
+        overflow: hidden;
+
+        &::after {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            content: '';
+            width: 100%;
+            height: 1px;
+            @include size.calculate(margin-left, 480px, 1460px, 12px, 20px);
+            background-color: var(--beige-accent);
+        }
+
+        /* если карточка центрирована */
+        .centered & {
+            &::after {
+                content: none;
+            }
+        }
+
+        &.no-line {
+            &::after {
+                content: none;
+            }
+        }
+    }
+
+    &__num + &__title {
+        @include size.calculate(margin-top, 480px, 1460px, 14px, 20px);
+    }
+
+    /* когда нумерация стоит ниже любого элемента кроме иконки, или картинки */
+    > *:not([class*='__icon']):not([class*='__img']) + [class*='__num'] {
+        @include size.calculate(margin-top, 480px, 1460px, 18px, 26px);
+    }
+
+    /* карточка с фото */
+    &__img {
+        width: 100%;
+        @include size.calculate(height, 480px, 1460px, 200px, 240px);
+
+        picture,
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &__logo {
+        position: absolute;
+        top: 0;
+        right: 0;
+        @include size.calculate(width, 480px, 1460px, 90px, 134px);
+        @include size.calculate(height, 480px, 1460px, 40px, 57px);
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    /* карточка с иконкой */
+    &__icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        @include size.calculate(width, 480px, 1460px, 80px, 100px);
+        @include size.calculate(height, 480px, 1460px, 80px, 100px);
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .centered & {
+            margin-inline: auto;
+        }
+    }
+
+    &__title {
+        line-height: 1.1;
+
+        * {
+            line-height: inherit;
+            color: inherit;
+        }
+
+        .dark & {
+            color: var(--white);
+        }
+    }
+
+    &__body {
+        @include size.calculate(font-size, 480px, 1460px, 13px, 16px);
+
+        /* отталкиваем друг от друга потомки в вертикальном ритме */
+        > * + * {
+            margin-top: var(--card-space-min);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: underline !important;
+            transition: var(--fast);
+
+            @include mobile.hover {
+                color: var(--beige-accent);
+            }
+        }
+
+        /* для шрифта покрупнее */
+        .medium {
+            @include size.calculate(font-size, 480px, 1460px, 13px, 20px);
+        }
+
+        .dark & {
+            color: var(--gray-blue);
+        }
+
+        .beige {
+            color: var(--beige-accent);
+        }
+    }
+
+    &__statistic {
+        &_value {
+            font-family: var(--font-title);
+            @include size.calculate(font-size, 480px, 1460px, 42px, 72px);
+            line-height: 1;
+        }
+
+        &_name {
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+        }
+
+        .dark & {
+            color: var(--white);
+        }
+    }
+
+    &__statistic + *:not([class*='__footer']) {
+        @include size.calculate(margin-top, 480px, 1460px, 20px, 40px);
+    }
+
+    &__footer {
+        padding-top: var(--card-space-min);
+        /* margin-top: auto; */
+    }
+
+    &.large {
+        @include size.calculate(padding, 480px, 1460px, 22px, 40px);
+    }
+}
+
+/* карточка с отзывом */
+.card-feedback {
+    @extend .card-properties;
+
+    @include size.calculate(gap, 480px, 1460px, 8px, 14px);
+    @include size.calculate(padding, 480px, 1460px, 18px, 26px);
+    border: 1px solid var(--gray-border);
+
+    &__preview {
+        position: relative;
+        @include size.calculate(height, 480px, 1460px, 100px, 130px);
+        overflow: hidden;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        &::after {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 60px;
+            background-image: var(--gradient-white);
+        }
+    }
+
+    &__body {
+        @include size.calculate(font-size, 480px, 1460px, 12px, 14px);
+    }
+
+    &__preview + * {
+        margin-top: var(--card-space-min);
+    }
+
+    > * {
+        text-align: center;
+    }
+}
+
+/* карточка статьи */
+.card-article {
+    @extend .card-properties;
+
+    transition: var(--fast);
+
+    @include mobile.hover {
+        transform: translateY(-5px);
+    }
+
+    &__preview {
+        position: relative;
+        width: 100%;
+        @include size.calculate(height, 480px, 1460px, 200px, 320px);
+        overflow: hidden;
+
+        picture,
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &__badge-group {
+        position: absolute;
+        bottom: 1em;
+        right: 1em;
+        display: flex;
+        gap: 6px;
+    }
+
+    &__badge {
+        @include size.calculate(padding, 480px, 1460px, 6px, 8px);
+        background-color: rgba(5, 9, 16, 0.5);
+        @include size.calculate(font-size, 480px, 1460px, 11px, 14px);
+        color: var(--white);
+        line-height: 1;
+    }
+
+    &__content {
+        @extend .card-properties;
+
+        @include size.calculate(gap, 480px, 1460px, 12px, 16px);
+        @include size.calculate(padding, 480px, 1460px, 16px, 20px);
+        background-color: var(--white);
+        
+        &.auto {
+            height: 100%;
+        }
+    }
+
+    &__taxonomy {
+        display: flex;
+        align-items: center;
+        @include size.calculate(gap, 480px, 1460px, 12px, 20px);
+
+        /* если таксономия расположена внизу карточки */
+        [class*='__footer'] & {
+            padding-top: 12px;
+            border-top: 1px solid var(--beige-accent);
+        }
+    }
+
+    &__author,
+    &__date,
+    &__time {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        line-height: 1;
+        
+        .name,
+        .value {
+            margin-top: 0.24em;
+        }
+    }
+    
+    &__time,
+    &__date {
+        flex-shrink: 0;
+
+        svg {
+            flex-shrink: 0;
+            @include size.calculate(width, 480px, 1460px, 16px, 20px);
+            @include size.calculate(height, 480px, 1460px, 16px, 20px);
+            fill: var(--gray-blue);
+        }
+    }
+
+    /* если перед датой стоит автор */
+    &__author + &__date {
+        margin-left: auto
+    }
+
+    &__author {
+        .avatar {
+            @include size.calculate(width, 480px, 1460px, 22px, 32px);
+            @include size.calculate(height, 480px, 1460px, 22px, 32px);
+            border-radius: 50%;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .name {
+            // Обрезаем текст по кол-ву строк
+            display: -webkit-box;
+            display: -moz-box;
+            line-clamp: 1;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            overflow: hidden;
+        }
+    }
+
+    &__title {
+        // Обрезаем текст по кол-ву строк
+        display: -webkit-box;
+        display: -moz-box;
+        line-clamp: 3;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        overflow: hidden;
+        cursor: pointer;
+
+        @include mobile.hover {
+            color: var(--beige-accent);
+
+            * {
+                color: var(--beige-accent);
+            }
+        }
+
+        * {
+            color: inherit;
+        }
+    }
+
+    &__body {
+        // Обрезаем текст по кол-ву строк
+        display: -webkit-box;
+        display: -moz-box;
+        line-clamp: 3;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    &__footer {
+        margin-top: auto;
+    }
+}
+
+/* карточка с коучем */
+.card-coach {
+    @extend .card-properties;
+
+    gap: 20px;
+    @include size.calculate(padding, 480px, 1460px, 12px, 20px);
+    height: 100%;
+
+    &__body {
+        display: flex;
+        // align-items: center;
+        gap: 20px;
+    }
+
+    &__avatar {
+        flex-shrink: 0;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &__name {
+        line-height: 1.2;
+    }
+
+    &__info {
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    &__type,
+    &__number {
+        padding: 0.4em;
+        display: inline-flex;
+        font-size: 14px;
+        line-height: 1;
+    }
+
+    &__type {
+        background-color: var(--black-blue);
+        color: var(--white);
+    }
+
+    &__number {
+        background-color: var(--gray-light);
+    }
+
+    &__footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 20px;
+        font-size: 13px;
+
+        &_option {
+            position: relative;
+            padding-left: calc(var(--card-coach-icon-size) + 0.4em);
+            line-height: 1;
+            letter-spacing: -0.04em;
+
+            &::before {
+                position: absolute;
+                top: -0.1em;
+                left: 0;
+                content: '';
+                width: var(--card-coach-icon-size);
+                height: var(--card-coach-icon-size);
+                background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 0.5C6.51664 0.5 5.0666 0.939867 3.83323 1.76398C2.59986 2.58809 1.63856 3.75943 1.07091 5.12987C0.50325 6.50032 0.354725 8.00832 0.644114 9.46318C0.933503 10.918 1.64781 12.2544 2.6967 13.3033C3.7456 14.3522 5.08197 15.0665 6.53683 15.3559C7.99168 15.6453 9.49968 15.4968 10.8701 14.9291C12.2406 14.3614 13.4119 13.4001 14.236 12.1668C15.0601 10.9334 15.5 9.48336 15.5 8C15.5 7.01509 15.306 6.03982 14.9291 5.12987C14.5522 4.21993 13.9997 3.39314 13.3033 2.6967C12.6069 2.00026 11.7801 1.44781 10.8701 1.0709C9.96019 0.693993 8.98492 0.5 8 0.5ZM12.257 6.67775L7.757 10.8028C7.61453 10.9334 7.42712 11.004 7.23386 10.9998C7.0406 10.9956 6.85643 10.9169 6.71975 10.7802L4.46975 8.53025C4.39812 8.46106 4.34098 8.37831 4.30168 8.2868C4.26237 8.1953 4.24168 8.09689 4.24082 7.9973C4.23995 7.89772 4.25893 7.79896 4.29664 7.70678C4.33435 7.61461 4.39004 7.53087 4.46046 7.46045C4.53088 7.39003 4.61462 7.33434 4.70679 7.29663C4.79896 7.25892 4.89772 7.23995 4.9973 7.24081C5.09689 7.24168 5.1953 7.26237 5.28681 7.30167C5.37831 7.34098 5.46107 7.39812 5.53025 7.46975L7.2725 9.212L11.243 5.57225C11.3896 5.43778 11.5836 5.36706 11.7824 5.37564C11.9811 5.38422 12.1683 5.4714 12.3028 5.618C12.4372 5.7646 12.5079 5.95861 12.4994 6.15735C12.4908 6.35609 12.4036 6.54329 12.257 6.67775Z' fill='%23DECCA2' /%3E%3C/svg%3E");
+            }
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        &__avatar {
+            width: 80px;
+            height: 80px;
+        }
+
+        &__info {
+            margin-top: 8px;
+        }
+
+        &__body {
+            gap: 14px;
+        }
+    }
+}
+
+.card-logo {
+    @extend .card-properties;
+
+    @include size.calculate(width, 480px, 1460px, 130px, 280px);
+    @include size.calculate(height, 480px, 1460px, 60px, 127px);
+    // width: 280px;
+    // height: 127px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 40px;
+    @include size.calculate(padding-inline, 480px, 1460px, 20px, 40px);
+    @include size.calculate(padding-top, 480px, 1460px, 10px, 36px);
+    @include size.calculate(padding-bottom, 480px, 1460px, 10px, 36px);
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+}
+
+.card-contact {
+    @extend .card-properties;
+
+    @include size.calculate(padding-inline, 480px, 1460px, 22px, 40px);
+    @include size.calculate(padding-top, 480px, 1460px, 22px, 30px);
+    @include size.calculate(padding-bottom, 480px, 1460px, 22px, 30px);
+
+    &__header {
+        display: flex;
+        align-items: center;
+
+        > * + * {
+            margin-left: auto;
+        }
+    }
+
+    &__header + &__form {
+        @include size.calculate(margin-top, 480px, 1460px, 20px, 40px);
+    }
+
+    &__form {
+        .form__footer {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            [class*='button'] {
+                width: auto;
+            }
+        }
+
+        .form__footer > * + * {
+            margin-top: 0;
+        }
+    }
+
+    &__footer {
+        margin-top: auto;
+        padding-top: 22px;
+
+        > * {
+            display: block;
+        }
+
+        a {
+            text-decoration: underline !important;
+            color: inherit;
+
+            @include mobile.hover {
+                color: var(--beige-accent);
+            }
+        }
+    }
+
+    &__social {
+        @include mobile.hover {
+            svg {
+                fill: var(--black-blue);
+            }
+        }
+        svg {
+            fill: var(--beige-accent);
+            transition: var(--fast);
+        }
+    }
+
+    &.fix-height {
+        min-height: 200px;
+    }
+
+
+
+    @media only screen and (max-width: 780px) {
+        &.fix-height {
+            min-height: auto;
+        }
+
+        &__form {
+            .form__footer {
+                flex-direction: column;
+
+                [class*='button'] {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.card-contact + .card-contact {
+    margin-top: 12px;
+}

@@ -1,0 +1,127 @@
+@use '../mixins/fluid-size' as size;
+
+.section-settings {
+	overflow-x: clip;
+
+	&.stream {
+		/* Вертикальные отступы между секциями */
+		@include size.calculate(padding-top, 480px, 1460px, 40px, 100px);
+		@include size.calculate(padding-bottom, 480px, 1460px, 40px, 100px);
+
+		&[data-stream-top='no'] {
+			padding-top: 0 !important;
+		}
+
+		&[data-stream-bottom='no'] {
+			padding-bottom: 0 !important;
+		}
+	}
+
+    &[data-background="gray-light"] {
+        background-color: var(--gray-light);
+    }
+
+	&.breadcrumbs {
+		@include size.calculate(padding-top, 480px, 1460px, 30px, 60px);
+	}
+
+    &.bg-dark {
+        background-color: var(--black-blue);
+    }
+
+    .bg-gray {
+        background-color: var(--gray-light);
+    }
+    
+}
+
+/* section */
+.section {
+	@extend .section-settings;
+
+	position: relative;
+
+	&__header,
+	&__body,
+	&__footer {
+		position: inherit;
+
+        &.centered {
+            text-align: center
+        }
+	}
+
+	&__header + &__body,
+    &__header + &__slider,
+	&__header + &__footer {
+		@include size.calculate(margin-top, 480px, 1460px, 20px, 40px);
+	}
+
+	&__body + &__footer,
+	&__body + &__body,
+    &__slider + &__footer {
+		@include size.calculate(margin-top, 480px, 1460px, 24px, 40px);
+	}
+
+    &__slider-body + &__slider-footer {
+		@include size.calculate(margin-top, 480px, 1460px, 24px, 40px);
+	}
+
+	&__video {
+        @include size.calculate(padding, 480px, 1460px, 20px, 60px);
+        background-color: var(--gray-light);
+    }
+
+    &__programm {
+        display: flex;
+        align-items: flex-end;
+        @include size.calculate(gap, 480px, 1460px, 16px, 80px);
+
+        p + P {
+            @include size.calculate(margin-top, 480px, 1460px, 16px, 30px);
+        }
+
+        /* Отталкиваем следующий элемент от предыдущего */
+        & + * {
+            margin-top: 30px;
+        }
+    }
+
+    &__accent {
+        @include size.calculate(padding, 480px, 1460px, 20px, 40px);
+        background-color: var(--white);
+        border: 1px solid var(--beige-accent);
+
+        * {
+            text-align: inherit;
+        }
+
+        > * + * {
+            @include size.calculate(margin-top, 480px, 1460px, 14px, 30px);
+        }
+
+        &.centered {
+            text-align: center;
+        }
+
+        &.dark {
+            border: 0;
+            background-color: var(--black-blue);
+            color: var(--beige-accent);
+
+            * {
+                color: inherit;
+            }
+            
+            p,i,em {
+                @include size.calculate(font-size, 480px, 1460px, 16px, 22px);
+            }
+        }
+    }
+
+    @media only screen and (max-width: 780px) {
+        &__programm {
+            flex-direction: column;
+        }
+    }
+}

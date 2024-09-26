@@ -1,0 +1,148 @@
+<div class="forweb-modal js-modal">
+
+    <!-- Начать сотрудничество -->
+    <div class="forweb-modal__container banner" aria-label="Начать сотрудничество" aria-modal="true"
+        data-forweb-target="modal-begin">
+        <div class="forweb-modal__content">
+            <div class="forweb-modal__body">
+                <form class="form js-form" data-sitekey="" data-target="modal-begin">
+                    <input type="hidden" name="recaptcha_response" class="recaptcha-response" value="">
+                    <input type="hidden" name="form-name" value="Начать сотрудничество">
+                    <fieldset class="form__body">
+                        <div class="form__item">
+                            <input class="input input-name" type="text" name="name"
+                                placeholder="Укажите ваше имя" required="">
+                        </div>
+                        <div class="form__item">
+                            <input class="input input-tel" type="tel" name="phone"
+                                placeholder="+7(ХХХ) ХХХ-ХХ-ХХ" required="">
+                        </div>
+                    </fieldset>
+                    <fieldset class="form__footer">
+                        <label class="label label--agree" for="agree-begin">
+                            <input class="checkbox input-agree" id="agree-begin" type="checkbox"
+                                required="">
+                            <span>Даю согласие на обработку и использование персональных данных согласно
+                                152-ФЗ, с <a href="https://" target="_blank">правилами политики обработки
+                                    персональных данных</a> ознакомлен</span>
+                        </label>
+                        <button type="submit" class="button">
+                            <span>Начать сотрудничество</span>
+                            <svg viewBox="0 0 16 16" fill="none">
+                                <path d="M13 12L2 1L1 2L12 13H3V15H15V3H13V12Z" />
+                            </svg>
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Запись на консультацию -->
+    <div class="forweb-modal__container banner" aria-label="Записаться на консультацию" aria-modal="true"
+        data-forweb-target="modal-question">
+        <div class="forweb-modal__content">
+            <div class="forweb-modal__body">
+                <form class="form js-form" data-sitekey="" data-target="modal-question">
+                    <input type="hidden" name="recaptcha_response" class="recaptcha-response" value="">
+                    <input type="hidden" name="form-name" value="Записаться на консультацию">
+                    <fieldset class="form__body">
+                        <div class="form__item">
+                            <input class="input input-name" type="text" name="name"
+                                placeholder="Укажите ваше имя" required="">
+                        </div>
+                        <div class="form__item">
+                            <input class="input input-tel" type="tel" name="phone"
+                                placeholder="+7(ХХХ) ХХХ-ХХ-ХХ" required="">
+                        </div>
+                    </fieldset>
+                    <fieldset class="form__footer">
+                        <label class="label label--agree" for="agree-question">
+                            <input class="checkbox input-agree" id="agree-question" type="checkbox"
+                                required="">
+                            <span>Даю согласие на обработку и использование персональных данных согласно
+                                152-ФЗ, с <a href="https://" target="_blank">правилами политики обработки
+                                    персональных данных</a> ознакомлен</span>
+                        </label>
+                        <button type="submit" class="button">
+                            <span>Записаться</span>
+                            <svg viewBox="0 0 16 16" fill="none">
+                                <path d="M13 12L2 1L1 2L12 13H3V15H15V3H13V12Z" />
+                            </svg>
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Смотреть скриншот -->
+	<div class="forweb-modal__container image js-modal-image" aria-label="Смотреть изображение" aria-modal="true" data-forweb-target="modal-image">
+		<div class="forweb-modal__content">
+			<span class="forweb-modal__close js-close" aria-label="Закрыть просмотр изображения"></span>
+			<div id="modal-image" class="modal-image">
+				<!-- Здесь вставляется картинка -->
+			</div>
+		</div>
+	</div>
+
+    <!-- Читать текст -->
+	<div class="forweb-modal__container text js-modal-text" aria-label="Читать текст" aria-modal="true" data-forweb-target="modal-text">
+		<div class="forweb-modal__content">
+			<span class="forweb-modal__close js-close" aria-label="Закрыть текст"></span>
+			<div id="modal-text" class="modal-text">
+				<!-- Здесь вставляется текст -->
+			</div>
+		</div>
+	</div>
+
+    <!-- Смотреть видео -->
+	<div class="forweb-modal__container video js-modal-video" aria-label="Смотреть видео" aria-modal="true" data-forweb-target="modal-video">
+		<div class="forweb-modal__content">
+			<span class="forweb-modal__close js-close" aria-label="Закрыть просмотр видео"></span>
+			<div id="modal-video" class="modal-video">
+				<!-- Здесь вставляется видео -->
+			</div>
+		</div>
+	</div>
+
+    <!-- Успешно отправлено -->
+    <div class="forweb-modal__container js-modal-success" role="dialog" aria-modal="true"
+        data-forweb-target="modal-success">
+        <div class="forweb-modal__content">
+            <span class="forweb-modal__close js-close" aria-label="Закрыть просмотр видео"></span>
+            <div class="form">
+                <div class="form__body">
+                    <legend class="form__legend">
+                        <h5>Успешно отправлено</h5>
+                    </legend>
+                    <!-- <div class="form__body_item">
+                        <p class="form__content_text">В ближайшее время наш специалист свяжется с вами, чтобы
+                            подтвердить ваши данные</p>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Произошла ошибка при отправке формы -->
+    <div class="forweb-modal__container js-modal-error" role="dialog" aria-modal="true"
+        data-forweb-target="modal-error">
+        <div class="forweb-modal__content">
+            <span class="forweb-modal__close js-close" aria-label="Закрыть просмотр видео"></span>
+            <div class="form">
+                <div class="form__body">
+                    <legend class="form__legend">
+                        <h5>Что-то пошло не так...</h5>
+                    </legend>
+                    <!-- <div class="form__body_item">
+                        <p class="form__content_text">К сожалению, возникла ошибка. Свяжитесь, пожалуйста с оператором
+                            по телефону:</p>
+                        <a class="form__error-tel" href="tel:+78003509685">+7 (800) 350-96-85</a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

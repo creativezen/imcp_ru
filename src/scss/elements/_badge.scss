@@ -1,0 +1,29 @@
+@use '../mixins/fluid-size' as size;
+
+.badge-properties {
+    --badge-space: calc(var(--scale) * 0.3);
+
+    border-radius: 1000px;
+    @include size.calculate(font-size, 480px, 1640px, 12px, 16px);
+    color: var(--white);
+}
+
+.badge {
+    @extend .badge-properties;
+
+    display: inline-block;
+    padding: var(--badge-space);
+    padding-inline: 12px;
+    border: 1px solid var(--white);
+}
+
+.badge-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    @include size.calculate(gap, 480px, 1720px, 8px, 14px);
+
+    @media only screen and (max-width: 780px) {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,46 @@
+@use '../mixins/fluid-size' as size;
+@use '../mixins/disable-mob-hover' as mobile;
+
+.mobile-nav {
+	position: fixed;
+	top: -100%;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-top: var(--header-height);
+	padding-bottom: 40px;
+	background: var(--black);
+	color: #fff;
+	transition: all 0.2s ease-in;
+	z-index: 0;
+
+	&__list {
+        position: relative;
+		display: flex;
+		flex-direction: column;
+        align-items: center;
+		gap: 10px;
+        @include size.calculate(font-size, 480px, 1460px, 18px, 22px);
+
+        li {
+            a {
+                @include mobile.hover {
+                    color: var(--blue-accent);
+                }
+            }
+        }
+	}
+
+	a {
+		color: inherit;
+	}
+
+    /* меню открыто */
+    &.active {
+		top: 0;
+        z-index: 99;
+	}
+}

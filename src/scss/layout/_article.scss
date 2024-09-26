@@ -1,0 +1,225 @@
+@use '../mixins/fluid-size' as size;
+
+/* article settings */
+.article-settings {
+	--article-space: calc(var(--scale) * 1.6);
+	--article-space-small: calc(var(--scale) * 0.8);
+}
+
+/* article prototype */
+.article-proto {
+	@extend .article-settings;
+
+	@include size.calculate(padding-inline, 480px, 1460px, 14px, 100px);
+	@include size.calculate(padding-top, 480px, 1460px, 30px, 60px);
+	@include size.calculate(padding-bottom, 480px, 1460px, 14px, 60px);
+    position: relative;
+    z-index: 2;
+
+    &.bg-dark {
+        background-color: var(--black-blue);
+
+        *:not([class]) {
+            color: var(--white)
+        }
+    }
+}
+
+/* article */
+.article {
+	@extend .article-proto;
+
+    background-color: var(--white);
+    box-shadow: 0 4px 54px 0 rgba(136, 125, 118, 0.15);
+
+    .top-offset & {
+        margin-top: -300px;
+    }
+
+	> * + h2 {
+		margin-top: calc(var(--scale) * 1.8);
+	}
+
+	> * + h3 {
+		margin-top: calc(var(--scale) * 1.8);
+	}
+
+	> * + h4 {
+		margin-top: calc(var(--scale) * 1.6);
+	}
+
+	> * + h5 {
+		margin-top: calc(var(--scale) * 1);
+	}
+
+	> * + h6 {
+		margin-top: calc(var(--scale) * 0.8);
+	}
+
+	> * + ul,
+	> * + ol {
+		margin-top: calc(var(--scale) * 0.8);
+	}
+
+	> *:not(h2):not(h3):not(h4):not(h5):not(h6) + p,
+	> *:not(h2):not(h3):not(h4):not(h5):not(h6) + blockquote,
+	> *:not(h2):not(h3):not(h4):not(h5):not(h6) + .blockquote,
+	> *:not(h2):not(h3):not(h4):not(h5):not(h6) + img {
+		margin-top: calc(var(--scale) * 1);
+	}
+    
+	img {
+        display: inline-block;
+        width: 100%;
+	}
+
+    picture + .accent-paragraph,
+    img + .accent-paragraph {
+        @include size.calculate(margin-top, 480px, 1460px, 22px, 48px);
+    }
+
+	ol,
+	ul {
+		padding-left: var(--article-space-small);
+		line-height: 1.4;
+
+		li {
+			font-size: inherit;
+			line-height: inherit;
+
+            & + * {
+                margin-top: calc(var(--scale) * 0.5);
+            }
+		}
+	}
+
+    figcaption {
+        @include size.calculate(padding, 480px, 1460px, 22px, 30px);
+        background-color: var(--gray-light);
+        @include size.calculate(font-size, 480px, 1460px, 18px, 24px);
+        letter-spacing: -0.04em;
+    }
+
+	a:not([class]) {
+		margin-top: 15px;
+		display: inline-block;
+		font-weight: inherit;
+		@include size.calculate(font-size, 480px, 1680px, 14px, 18px);
+		line-height: 140%;
+		letter-spacing: -0.03em;
+		color: var(--link-blue);
+		text-decoration: underline;
+
+		&:hover {
+			color: var(--beige-accent);
+		}
+	}
+
+    &__body + &__body {
+        @include size.calculate(margin-top, 480px, 1460px, 24px, 80px);
+    }
+
+    &__content {
+        .article-flex & {
+            display: flex;
+            gap: 20px;
+        }
+    }
+
+    &__content-item {
+        > * + * {
+            @include size.calculate(margin-top, 480px, 1460px, 14px, 30px);
+        }
+
+        .article-flex & {
+            flex: auto;
+            width: 50%;
+        }
+    }
+
+    &__content-tagline {
+        .bg-dark & {
+            color: var(--white);
+        }
+    }
+
+    &__author {
+        text-align: center;
+    }
+
+    &__author + * {
+        margin-top: 16px;
+    }
+
+    &__author-avatar {
+        margin-inline: auto;
+        @include size.calculate(width, 480px, 1460px, 80px, 140px);
+        @include size.calculate(height, 480px, 1460px, 80px, 140px);
+        overflow: hidden;
+        border-radius: 50%;
+
+        & + * {
+            margin-top: 14px;
+        }
+
+        picture {
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+    }
+
+    &__taxonomy {
+        display: flex;
+        margin-bottom: 30px;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    @media only screen and (max-width: 780px) {
+        .top-offset & {
+            margin-top: -240px;
+        }
+
+        &__content {
+            .article-flex & {
+                flex-direction: column;
+            }
+        }
+    
+        &__content-item {
+            .article-flex & {
+                width: 100%;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 580px) {
+        .top-offset & {
+            margin-top: -220px;
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        .top-offset & {
+            margin-top: 0;
+        }
+
+        &__taxonomy {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.article + .article {
+	margin-top: calc(var(--scale) * 1.4);
+}

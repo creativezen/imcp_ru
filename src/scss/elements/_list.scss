@@ -1,0 +1,8 @@
+@use '../mixins/fluid-size' as size;
+@use '../mixins/disable-mob-hover' as mobile;
+
+.list-properties {
+    --list-space-large: calc(var(--scale) * 2);
+    --list-space-medium: calc(var(--scale) * 1.4);
+    --list-space-small: calc(var(--scale) * 0.8);
+}

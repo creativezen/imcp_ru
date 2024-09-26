@@ -1,0 +1,31 @@
+@use '../mixins/fluid-size' as size;
+
+.marquee {
+    --marquee-space: 20px;
+    overflow: hidden;
+    display: flex;
+
+    &__content {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        text-transform: uppercase;
+        gap: var(--marquee-space);
+    }
+
+    &__item {
+        line-height: 1;
+        font-size: inherit;
+        color: inherit;
+        text-transform: inherit;
+
+        /* пространство между циклами родительского блока */
+        &:last-child {
+            margin-right: var(--marquee-space);
+        }
+    }
+
+    @media only screen and (max-width: 680px) {
+        --marquee-space: 12px;
+    }
+}

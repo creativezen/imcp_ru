@@ -1,0 +1,67 @@
+@use '../mixins/_fluid-size.scss' as size;
+@use '../mixins/disable-mob-hover' as mobile;
+
+.video-block {
+    position: relative;
+    @include size.calculate(height, 480px, 1460px, 400px, 500px);
+    overflow: hidden;
+    cursor: pointer;
+
+    @include mobile.hover {
+        img {
+            transform: scale(1.1);
+        }
+
+        [class*="__overlay"] {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    &::after {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 50%;
+        transform: translate(-30%, -50%);
+        width: 40px;
+        height: 50px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("data:image/svg+xml,%3Csvg width='40' height='50' viewBox='0 0 40 50' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M38.7863 22.7241C40.4046 23.7575 40.4046 26.2425 38.7863 27.2759L3.80561 49.6141C2.13297 50.6822 -8.53766e-08 49.4066 0 47.3382L1.84407e-06 2.66182C1.92945e-06 0.593378 2.13297 -0.682231 3.80561 0.385895L38.7863 22.7241Z' fill='white' /%3E%3C/svg%3E");
+        background-size: cover;
+        opacity: 0.8;
+        transition: var(--fast);
+    }
+    
+    &__img {
+        height: inherit;
+        overflow: hidden;
+
+        picture,
+        img {
+            width: 100%;
+            height: 100%;
+            transition: var(--slow);
+        }
+
+        img {
+            object-fit: cover;
+        }
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        transition: var(--fast);
+    }
+}

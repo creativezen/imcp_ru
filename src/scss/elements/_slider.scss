@@ -1,0 +1,35 @@
+@use '../mixins/fluid-size' as size;
+
+.slider {
+    &[data-slider-name="home-feedbacks"] {
+        .swiper-slide {
+            @include size.calculate(max-width, 480px, 1720px, 400px, 580px);
+            height: auto;
+        }
+    }
+
+    &[data-slider-name="home-achievements"] {
+        .swiper-slide {
+            @include size.calculate(max-width, 680px, 1460px, 200px, 325px);
+            height: auto;
+        }
+    }
+
+    &[data-slider-name="home-author-feedbacks"] {
+        .swiper-slide {
+            @include size.calculate(max-width, 680px, 1460px, 260px, 375px);
+            height: auto;
+        }
+    }
+}
+
+.slider-arrows {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.slider + .slider-controls {
+    @include size.calculate(margin-top, 480px, 1460px, 24px, 40px);
+}

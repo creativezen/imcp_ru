@@ -1,0 +1,263 @@
+@use './mixins/font-face' as font;
+@use './mixins/fluid-size' as size;
+
+/* Fonts connect */
+@include font.font-face('Oranienbaum', 'Oranienbaum-Regular', 400, normal);
+@include font.font-face('Montserrat', 'Montserrat-Regular', 400, normal);
+@include font.font-face('Montserrat', 'Montserrat-Medium', 500, normal);
+@include font.font-face('Montserrat', 'Montserrat-SemiBold', 600, normal);
+
+/* Typography */
+.title-property {
+    background-color: transparent;
+	font-family: var(--font-title);
+	font-weight: 400;
+	line-height: 1.1;
+	letter-spacing: -0.04em;
+	color: var(--black);
+	transition: var(--fast);
+
+    &.white, .white {
+        color: var(--white);
+    }
+
+    &.beige, .beige {
+        color: var(--beige-accent);
+    }
+
+    &.center, .center {
+        text-align: center;
+    }
+
+    &.right, .right {
+        text-align: right;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@extend .title-property;
+    color: var(--black);
+}
+
+h1 {
+	@include size.calculate(font-size, 480px, 1460px, 46px, 100px);
+
+	& + * {
+		margin-top: calc(var(--scale) * 1.8);
+	}
+}
+
+h2 {
+	@include size.calculate(font-size, 480px, 1460px, 42px, 72px);
+
+	& + * {
+		margin-top: calc(var(--scale) * 1.3);
+	}
+}
+
+h3 {
+	@include size.calculate(font-size, 480px, 1460px, 36px, 60px);
+
+	& + * {
+		margin-top: calc(var(--scale) * 1.2);
+	}
+}
+
+h4 {
+	@include size.calculate(font-size, 480px, 1460px, 30px, 48px);
+	line-height: 1.1;
+
+	& + * {
+		margin-top: calc(var(--scale) * 1);
+	}
+}
+
+h5 {
+	@include size.calculate(font-size, 480px, 1460px, 28px, 38px);
+	line-height: 1.2;
+
+	& + * {
+		margin-top: calc(var(--scale) * 0.8);
+	}
+}
+
+h6 {
+	@include size.calculate(font-size, 480px, 1460px, 26px, 32px);
+	line-height: 1.2;
+
+	& + * {
+		margin-top: calc(var(--scale) * 0.8);
+	}
+}
+
+blockquote {
+    @include size.calculate(padding, 480px, 1460px, 22px, 40px);
+    font-family: var(--font-title);
+    @include size.calculate(font-size, 480px, 1460px, 26px, 52px);
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    color: var(--black);
+    background: var(--gray-light);
+
+    /* Отталкиваем следующий элемент от предыдущего */
+    & + *,
+    * + & {
+        @include size.calculate(margin-top, 480px, 1460px, 16px, 40px);
+    }
+}
+
+b,
+strong {
+	font-weight: 700;
+}
+
+p,
+b,
+strong,
+span,
+div,
+blockquote {
+	&.beige {
+        color: var(--beige-accent);
+    }
+
+    &.antiqua {
+        font-family: var(--font-title);
+    }
+}
+
+blockquote {
+    > *:not([class]) + *:not([class]) {
+        margin-top: calc(var(--scale) * 1.4);
+    }
+}
+
+small + small {
+	margin-top: calc(var(--scale) * 0.2);
+}
+
+ul:not([class]),
+ol:not([class]) {
+    li {
+        position: relative;
+        padding-left: 1.2em;
+    }
+
+    * {
+        font-size: inherit;
+        line-height: inherit;
+    }
+}
+
+ul:not([class]) {
+    li {
+        &:before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            display: block;
+            position: absolute;
+            top: 0.4em;
+            left: 0;
+            margin: auto;
+            border-radius: 100px;
+            background: var(--beige-accent);
+        }
+    }
+}
+
+.title {
+	@extend h2;
+
+    & + .small-accent {
+        display: block;
+        margin-top: calc(var(--scale) * 1.4);
+    }
+}
+
+.title-hero {
+    @extend h1;
+
+    > * {
+        display: block;
+        line-height: 1;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .right {
+        text-align: right;
+    }
+
+    & + .accent {
+        @include size.calculate(font-size, 480px, 1460px, 17px, 28px);
+        text-align: center;
+        
+        > * + * {
+            @include size.calculate(margin-top, 480px, 1460px, 12px, 22px);
+        }
+        
+        .home-page & {
+            @include size.calculate(font-size, 480px, 1460px, 20px, 34px);
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        text-align: center;
+        
+        & > * {
+            display: inline;
+        }
+    }
+}
+
+.tagline {
+    @extend h6;
+
+    max-width: 1100px;
+    
+    .centered & {
+        margin-inline: auto;
+    }
+}
+
+.accent-paragraph *:not([class*='title']):not([class*='small']):not([class*='content-item']):not([class*='content-tagline']):not(blockquote) {
+    @include size.calculate(font-size, 480px, 1460px, 18px, 24px);
+
+    letter-spacing: -0.04em;
+}
+
+.accent-paragraph {
+    > * + *:not([class*='title']):not([class*='small']):not([class*='content-item']):not(blockquote) {
+        @include size.calculate(margin-top, 480px, 1460px, 14px, 30px);
+    }
+
+    > picture + *,
+    > img + * {
+        @include size.calculate(margin-top, 480px, 1460px, 20px, 60px);
+    }
+}
+
+.hero-paragraph {
+    @include size.calculate(font-size, 480px, 1460px, 16px, 20px);
+    color: var(--white);
+    text-align: center;
+}
+
+.small-accent {
+    @include size.calculate(font-size, 480px, 1460px, 16px, 20px);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--beige-accent);
+}
+
+.small-accent + * {
+    @include size.calculate(margin-top, 480px, 1460px, 16px, 30px);
+}

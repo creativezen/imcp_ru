@@ -1,0 +1,81 @@
+@use '../mixins/disable-mob-hover' as mobile;
+
+.burger {
+    --time: 0.1s;
+    --burger-width: 34px;
+    --burger-height: 34px;
+    --icon-width: 14px;
+    --icon-height: 20px;
+    --line-height: 1px;
+    --spacing: 4px;
+    
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: var(--burger-width);
+    height: var(--burger-height);
+    border: 1px solid var(--gray-blue);
+    border-radius: 50%;
+    z-index: 999;
+    cursor: pointer;
+    transition: var(--fast);
+
+    &__icon {
+        position: relative;
+        width: var(--icon-width);
+        height: var(--line-height);
+        
+        /* делаем центральную полоску прозрачной, т.к. у нас две полоски в дизайне */
+        background-color: transparent;
+
+        &::before,
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: var(--icon-width);
+            height: var(--line-height);
+            background-color: var(--white);
+            transition: transform var(--time) ease-in, top var(--time) linear var(--time);
+        }
+        
+        &::before {
+            /* top: calc(var(--line-height) * -2); */
+            top: -0.2em;
+        }
+        
+        &::after {
+            /* top: calc(var(--line-height) * 2); */
+            top: 0.2em;;
+        }
+        
+        &.active {
+            &::before,
+            &::after {
+                left: 0;
+                top: 0;
+                transition: top var(--time) linear, transform var(--time) ease-in var(--time);
+                background-color: var(--black);
+            }
+
+            &::before {
+                transform: rotate(45deg);
+            }
+            
+            &::after {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    /* состояние бургера, когда меню открыто */
+    &.active {
+        border-color: var(--white);
+        background-color: var(--white);
+    }
+
+    /* включаем кнопку меню для мобильных */
+    @media only screen and (max-width: 980px) {
+        display: flex;
+    }
+}

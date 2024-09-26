@@ -1,0 +1,7 @@
+@use '../mixins/fluid-size' as size;
+
+.aside {
+	/* Закрепляем блок в сайдбаре при скроле */
+	[data-position='sticky'] {
+	}
+}

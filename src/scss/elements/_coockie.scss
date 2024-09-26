@@ -1,0 +1,36 @@
+@use './../mixins/fluid-size' as size;
+
+.coockie-bar {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    @include size.calculate(padding-top, 480px, 1460px, 8px, 14px);
+    @include size.calculate(padding-bottom, 480px, 1460px, 8px, 14px);
+    background-color: var(--white);
+    z-index: 10000;
+    box-shadow: 0px -9px 16px -7px rgba(0,0,0,0.2);
+
+    &__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include size.calculate(gap, 480px, 1460px, 12px, 30px);
+    }
+
+    &__text {
+        line-height: 1;
+    }
+
+    &__buttons {
+        flex-shrink: 0;
+    }
+
+    @media only screen and (max-width: 680px) {
+        &__content {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+    }
+}
