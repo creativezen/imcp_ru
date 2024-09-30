@@ -31,6 +31,22 @@
         background-color: var(--gray-light);
     }
 
+    &.blue {
+        background-color: var(--blue-accent);
+    }
+
+    &.beige-sky {
+        background-color: var(--beige-sky);
+    }
+
+    &.gray-sky {
+        background-color: var(--gray-sky);
+    }
+
+    &.transparent {
+        background-color: transparent;
+    }
+
     /* карточка темная с блюр эффектом */
     &.blured {
         backdrop-filter: blur(12px);
@@ -51,6 +67,8 @@
 
     /* карточка центрированная */
     &.centered {
+        align-items: center;
+
         > * {
             text-align: center;
         }
@@ -74,6 +92,105 @@
     @include size.calculate(gap, 480px, 1460px, 14px, 20px);
     @include size.calculate(padding, 480px, 1460px, 22px, 30px);
     background-color: var(--white);
+
+    &__header {
+        .blue & {
+            color: var(--white);
+
+            > * {
+                color: inherit;
+            }
+        }
+    }
+
+    &__body {
+        @include size.calculate(font-size, 480px, 1460px, 13px, 16px);
+
+        /* отталкиваем друг от друга потомки в вертикальном ритме */
+        > * + * {
+            @include size.calculate(margin-top, 480px, 1460px, 8px, 14px);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: underline !important;
+            transition: var(--fast);
+
+            @include mobile.hover {
+                color: var(--beige-accent);
+            }
+        }
+
+        ul,
+        ol {
+            li {
+                padding-left: 0;
+
+                &::before {
+                    display: none;
+                }
+            }
+        }
+
+        /* для шрифта покрупнее */
+        .medium {
+            @include size.calculate(font-size, 480px, 1460px, 13px, 20px);
+        }
+
+        .dark & {
+            color: var(--gray-blue);
+        }
+
+        .beige {
+            color: var(--beige-accent);
+        }
+
+        .blue & {
+            color: var(--white);
+        }
+    }
+
+    /* &__footer {
+        padding-top: var(--card-space-min);
+    } */
+
+    /* карточка с фото */
+    &__img {
+        position: relative;
+        width: 100%;
+        @include size.calculate(height, 480px, 1460px, 200px, 240px);
+
+        picture,
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &__tagline {
+        @include size.calculate(font-size, 480px, 1460px, 16px, 22px);
+        line-height: 1.2;
+    }
+
+    &__title {
+        line-height: 1.1;
+
+        * {
+            line-height: inherit;
+            color: inherit;
+        }
+
+        .dark &,
+        .blue & {
+            color: var(--white);
+
+            * {
+                color: inherit;
+            }
+        }
+    }
 
     &__num {
         position: relative;
@@ -117,20 +234,6 @@
         @include size.calculate(margin-top, 480px, 1460px, 18px, 26px);
     }
 
-    /* карточка с фото */
-    &__img {
-        width: 100%;
-        @include size.calculate(height, 480px, 1460px, 200px, 240px);
-
-        picture,
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-    }
-
     &__logo {
         position: absolute;
         top: 0;
@@ -165,52 +268,49 @@
         }
 
         .centered & {
+            display: flex;
+            justify-content: center;
             margin-inline: auto;
         }
     }
 
-    &__title {
-        line-height: 1.1;
-
-        * {
+    &__roman-num {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        @include size.calculate(width, 480px, 1460px, 80px, 110px);
+        @include size.calculate(height, 480px, 1460px, 80px, 110px);
+        border-radius: 50%;
+        border: 1px solid var(--beige-accent);
+        overflow: hidden;
+        
+        @include size.calculate(font-size, 480px, 1460px, 40px, 70px);
+        line-height: 1;
+        font-family: var(--font-title);
+        text-transform: uppercase;
+        letter-spacing: -0.05em;
+        background-image: var(--gradient-beige);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        
+        > * {
+            font-size: inherit;
             line-height: inherit;
-            color: inherit;
+            font-family: inherit;
+            text-transform: inherit;
+            letter-spacing: inherit;
+            background-image: inherit;
+            background-clip: inherit;
+            -webkit-background-clip: inherit;
+            -webkit-text-fill-color: inherit;
+            text-fill-color: inherit;
         }
-
-        .dark & {
-            color: var(--white);
-        }
-    }
-
-    &__body {
-        @include size.calculate(font-size, 480px, 1460px, 13px, 16px);
-
-        /* отталкиваем друг от друга потомки в вертикальном ритме */
-        > * + * {
-            margin-top: var(--card-space-min);
-        }
-
-        a {
-            color: inherit;
-            text-decoration: underline !important;
-            transition: var(--fast);
-
-            @include mobile.hover {
-                color: var(--beige-accent);
-            }
-        }
-
-        /* для шрифта покрупнее */
-        .medium {
-            @include size.calculate(font-size, 480px, 1460px, 13px, 20px);
-        }
-
-        .dark & {
-            color: var(--gray-blue);
-        }
-
-        .beige {
-            color: var(--beige-accent);
+        
+        .centered & {
+            margin-inline: auto;
         }
     }
 
@@ -232,17 +332,68 @@
         }
     }
 
-    &__statistic + *:not([class*='__footer']) {
+    &__statistic + *:not([class*='__footer']):not(.no-margin) {
         @include size.calculate(margin-top, 480px, 1460px, 20px, 40px);
     }
+    
+    &__avatar {
+        @include size.calculate(width, 480px, 1460px, 128px, 168px);
+        @include size.calculate(height, 480px, 1460px, 128px, 168px);
+        border-radius: 50%;
+        overflow: hidden;
 
-    &__footer {
-        padding-top: var(--card-space-min);
-        /* margin-top: auto; */
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: inheritl;
+            overflow: hidden;
+        }
     }
 
     &.large {
         @include size.calculate(padding, 480px, 1460px, 22px, 40px);
+    }
+}
+
+
+/* карточка с абстрактным фоном */
+.card-abstract {
+    @extend .card-properties;
+
+    &__content {
+        position: relative;
+        @include size.calculate(padding, 480px, 1460px, 22px, 30px);
+
+        .darkness & {
+            color: var(--white);
+
+            *:not(class) {
+                color: inherit;
+            }
+        }
+
+        > *:not(h2):not(h3):not(h4):not(h5):not(h6) {
+            @include size.calculate(font-size, 480px, 1460px, 13px, 15px);
+        }
+
+        > *:not(h2):not(h3):not(h4):not(h5):not(h6) + * {
+            @include size.calculate(margin-top, 480px, 1460px, 8px, 14px);
+        }
+    }
+
+    &__bg {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
     }
 }
 
@@ -447,6 +598,7 @@
     }
 }
 
+
 /* карточка с коучем */
 .card-coach {
     @extend .card-properties;
@@ -545,6 +697,8 @@
     }
 }
 
+
+/* карточка партнера */
 .card-logo {
     @extend .card-properties;
 
@@ -568,6 +722,8 @@
     }
 }
 
+
+/* карточка контактов */
 .card-contact {
     @extend .card-properties;
 
@@ -638,8 +794,6 @@
         min-height: 200px;
     }
 
-
-
     @media only screen and (max-width: 780px) {
         &.fix-height {
             min-height: auto;
@@ -657,6 +811,121 @@
     }
 }
 
+
 .card-contact + .card-contact {
     margin-top: 12px;
+}
+
+
+/* карточка эксперта */
+.card-history {
+    @extend .card-properties;
+
+    --photo-width: 290px;
+    --photo-height: 370px;
+    
+    flex-direction: row;
+
+    &__photo {
+        flex-shrink: 0;
+        width: var(--photo-width);
+        height: var(--photo-height);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: cover;
+        }
+    }
+
+    &__content {
+        flex: auto;
+        @include size.calculate(padding, 480px, 1460px, 22px, 30px);
+
+        > * + * {
+            margin-top: 16px;
+        }
+    }
+
+    &__header {
+        > * + * {
+            margin-top: 14px;
+        }
+    }
+
+    &__body {
+        @include size.calculate(font-size, 480px, 1460px, 16px, 22px);
+
+        > *:not(a) {
+            color: var(--gray);
+        }
+
+        a {
+            display: inline-block;
+            color: var(--black);
+            text-decoration: underline !important;
+            transition: var(--fast);
+
+            @include mobile.hover {
+                text-decoration: none;
+                color: var(--gray);
+            }
+        }
+
+        > * + * {
+            margin-top: 14px;
+        }
+    }
+
+    @media only screen and (max-width: 580px) {
+        --photo-width: 230px;
+        --photo-height: 320px;
+    }
+
+    @media only screen and (max-width: 480px) {
+        --photo-width: 180px;
+        --photo-height: 180px;
+
+        flex-direction: column;
+        align-items: center;
+        padding: 22px;
+        gap: 20px;
+
+        &__photo {
+            border-radius: 50%;
+            overflow: hidden;
+
+            img {
+                border-radius: inherit;
+            }
+        }
+
+        &__content {
+            padding: 0;
+            text-align: center;
+        }
+
+    }
+}
+
+
+.card-event {
+    @extend .card-properties;
+
+    justify-content: flex-end;
+    @include size.calculate(min-height, 480px, 1460px, 390px, 490px);
+
+    &__img {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
 }
