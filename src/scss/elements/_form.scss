@@ -53,11 +53,11 @@
 /* Label */
 .label {
 	display: flex;
-    @include size.calculate(font-size, 480px, 1460px, 14px, 18px);
+    @include size.calculate(font-size, 480px, 1460px, 13px, 15px);
 	font-weight: 400;
 	line-height: 1;
 	transition: var(--fast);
-	color: var(--white);
+	color: var(--gray);
 	cursor: pointer;
 
 	&--agree {
@@ -67,8 +67,8 @@
 
 		.checkbox {
 			top: -0.4em;
-			width: 22px;
-			height: 22px;
+			width: var(--checkbox-size);
+			height: var(--checkbox-size);
             
             @media only screen and (max-width: 680px) {
                 top: -0.3em;
@@ -79,7 +79,8 @@
 	}
 
     a {
-        text-decoration: underline;
+        color: inherit !important;
+        text-decoration: underline !important;
     }
 }
 
@@ -103,7 +104,7 @@
 
 /* Checkbox */
 .checkbox {
-	--checkbox-size: calc(var(--scale) * 4);
+	// --checkbox-size: calc(var(--scale) * 4);
 	--checked-size: 60%;
 
 	flex-shrink: 0;
@@ -114,9 +115,9 @@
 	height: var(--checkbox-size);
 	max-width: 24px;
 	max-height: 24px;
-	border: 1px solid var(--dark-border);
+	border: 1px solid var(--gray-border);
 	border-radius: 3px;
-	background-color: transparent;
+	background-color: var(--white);
 	transform: translateY(0.2em);
 
 	.forweb-modal__container & {
@@ -153,7 +154,7 @@
 	}
 
 	&:checked + * {
-		color: var(--white);
+		color: var(--black);
 	}
 
 	&:checked::before {

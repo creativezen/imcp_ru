@@ -138,12 +138,64 @@
                 </div>
             </div>
         </section>
+
+        <section id="video" class="section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="title">Блоки</h2>
+                </div>
+
+                <!-- Блок видео -->
+                <div class="section__body">
+                    <div class="section__body">
+                        <div class="video-block js-button-video" data-title="About IMCP" data-content="FyzTT3ZSz_M" data-forweb-path="modal-video">
+                            <div class="video-block__img">
+                                <img loading="lazy" src="img/block/img-block-video-01_2x.jpg" alt="Название видео">
+                            </div>
+                            <div class="video-block__overlay"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок форма контакты -->
+                <div class="section__body">
+                    <form id="form-contacts" class="form js-form" data-sitekey="">
+                        <input type="hidden" name="recaptcha_response" class="recaptcha-response" value="">
+                        <input type="hidden" name="form-name" value="">
+                        <input type="hidden" name="url" value="">
+                        <fieldset class="form__body">
+                            <div class="form__item">
+                                <input class="input input-name js-input-email" type="text" name="name" placeholder="Имя" required="">
+                            </div>
+                            <div class="form__item">
+                                <input class="input input-email js-input-email" type="email" name="email" placeholder="E-mail" required="">
+                            </div>
+                            <div class="form__item">
+                                <textarea class="textarea" name="comment" placeholder="Your question" required=""></textarea>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form__footer">
+                            <label class="label label-checkbox agree" for="agree-contacts">
+                                <input class="checkbox small input-agree" id="agree-contacts" type="checkbox" required="">
+                                <span class="label-checkbox__text">Даю согласие на обработку и использование персональных данных согласно 152-ФЗ, с
+                                    <!--noindex-->
+                                        <a href="#" rel="nofollow" target="_blank">правилами политики обработки персональных данных</a>
+                                    <!--/noindex-->
+                                    ознакомлен</span>
+                            </label>
+                            <button class="button" type="submit" data-autofocus="name"><span>Отправить</span></button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </section>
     
         <section class="section stream">
             <div class="container">
                 <div class="section__header">
                     <h2 class="title">Карточки</h2>
                 </div>
+
                 <!-- Карточки абстрактный фон -->
                 <div class="section__body">
                     <div class="grid-group">
@@ -193,6 +245,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Карточки голубой фон -->
                 <div class="section__body">
                     <div class="grid-group">
@@ -239,6 +292,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Карточки разноцветные с иконкой -->
                 <div class="section__body">
                     <div class="grid-group">
@@ -274,6 +328,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Карточки разноцветные римская нумерация -->
                 <div class="section__body">
                     <div class="grid-group">
@@ -309,6 +364,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Карточки с фактами для бегущей строки -->
                 <div class="section__body">
                     <div class="grid-group">
@@ -327,6 +383,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Карточки эксперт -->
                 <div class="section__body">
                     <div class="grid-group">
@@ -345,6 +402,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Карточка истории успеха -->
                 <div class="section__body">
                     <div class="grid-group">
@@ -398,7 +456,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="grid-child" data-grid="6">
+                        <div class="grid-child" data-grid="7">
                             <div class="card-event">
                                 <div class="card-event__img">
                                     <img src="img/home/img-card-event-01_2x.jpg" alt="Название мероприятия">
@@ -406,10 +464,9 @@
                                 </div>
                                 <div class="card transparent centered">
                                     <div class="card__header">
-                                        <h5>Название мероприятия</h5>
+                                        <a href="#"><h5>Название мероприятия</h5></a>
                                     </div>
                                     <div class="card__body">
-                                        <p>Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице</p>
                                         <p>Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице</p>
                                     </div>
                                     <div class="card__footer">
@@ -421,6 +478,164 @@
                     </div>
                 </div>
 
+                <!-- Нумированные списки -->
+                <div class="section__body">
+                    <div class="card transparent no-padding">
+                        <div class="card__num">01</div>
+                        <div class="card__body accent">
+                            <p>Получаете возможность поступить в Лигу — второй год обучения в Институте MCP.</p>
+                        </div>
+                        <div class="card__num">02</div>
+                        <div class="card__header">
+                            <div class="card__title">
+                                <h6>Обучаем коучей</h6>
+                            </div>
+                        </div>
+                        <div class="card__body">
+                            <p>Предоставляем базовое образование в модальности экспоненциального коучинга</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок автора статьи. Блок содержимое статьи -->
+                <div class="section__body">
+                    <div class="aside-author">
+                        <div class="card gray-sky">
+                            <div class="aside-author__avatar">
+                                <img loading="lazy" src="img/blog/img-avatar-article-01_2x.jpg" alt="Misha Saidov">
+                            </div>
+                            <div class="aside-author__info">
+                                <h6>Misha Saidov</h6>
+                                <div class="card-article__taxonomy">
+                                    <div class="card-article__time">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.4173 3.33335C6.73542 3.33335 3.75065 6.31812 3.75065 10C3.75065 13.6819 6.73542 16.6667 10.4173 16.6667C14.0992 16.6667 17.084 13.6819 17.084 10C17.084 6.31812 14.0992 3.33335 10.4173 3.33335ZM2.08398 10C2.08398 5.39765 5.81494 1.66669 10.4173 1.66669C15.0197 1.66669 18.7507 5.39765 18.7507 10C18.7507 14.6024 15.0197 18.3334 10.4173 18.3334C5.81494 18.3334 2.08398 14.6024 2.08398 10ZM10.4173 6.18408C10.8776 6.18408 11.2507 6.55717 11.2507 7.01741V10.3369L13.4933 11.0845C13.93 11.23 14.1659 11.7019 14.0204 12.1385C13.8748 12.5752 13.4029 12.8111 12.9663 12.6656L10.1538 11.7281C9.81351 11.6147 9.58398 11.2962 9.58398 10.9375V7.01741C9.58398 6.55717 9.95708 6.18408 10.4173 6.18408Z"></path>
+                                        </svg>
+                                        <small class="value">5 мин. чтения</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aside-list-content">
+                        <div class="card bordered">
+                            <div class="card__header">
+                                <h6>Содержание:</h6>
+                            </div>
+                            <div class="card__body">
+                                <ul class="aside-list-content__links">
+                                    <li><a href="#">Рабочая техника: не бойтесь отказаться от того, что не двигает вас вперед</a></li>
+                                    <li><a href="#">Идеи для развития бизнеса</a></li>
+                                    <li><a href="#">Масштабирование бизнеса как способ выйти на новый уровень</a></li>
+                                    <li><a href="#">Развитие команды — еще один метод роста</a></li>
+                                    <li><a href="#">Делегировать тоже нужно уметь</a></li>
+                                    <li><a href="#">Ключевой совет, который поможет на любом этапе развития компании</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка статьи - блоковая -->
+                <div class="section__body">
+                    <div class="card-board">
+                        <div class="card-board__img">
+                            <img loading="lazy" src="img/blog/img-card-board-01_2x.jpg" alt="Чем так вреден сахар, и почему сахарозаменители не помогут?">
+                            <div class="card-article__badge-group">
+								<div class="card-article__badge">Мышление</div>
+							</div>
+                        </div>
+                        <div class="card-board__content">
+                            <div class="card-article__taxonomy">
+                                <div class="card-article__date">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.46562 1.66669C5.92586 1.66669 6.29895 2.03978 6.29895 2.50002V2.95239H13.1243V2.50002C13.1243 2.03978 13.4974 1.66669 13.9577 1.66669C14.4179 1.66669 14.791 2.03978 14.791 2.50002V3.00308C16.2197 3.26729 17.291 4.53208 17.291 6.03573V15.25C17.291 16.9431 15.9327 18.3334 14.2355 18.3334H5.34657C3.6493 18.3334 2.29102 16.9431 2.29102 15.25V6.03573C2.29102 4.5883 3.28373 3.36221 4.63229 3.03688V2.50002C4.63229 2.03978 5.00538 1.66669 5.46562 1.66669ZM5.44928 4.61906H5.34657C4.58924 4.61906 3.95768 5.24353 3.95768 6.03573V6.59523H15.6243V6.03573C15.6243 5.24353 14.9928 4.61906 14.2355 4.61906H5.48196C5.47652 4.61917 5.47108 4.61922 5.46562 4.61922C5.46016 4.61922 5.45471 4.61917 5.44928 4.61906ZM15.6243 8.2619H3.95768V15.25C3.95768 16.0422 4.58924 16.6667 5.34657 16.6667H14.2355C14.9928 16.6667 15.6243 16.0422 15.6243 15.25V8.2619Z"></path>
+                                    </svg>
+                                    <small class="value">Янв. 12, 2023</small>
+                                </div>
+                                <div class="card-article__time">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.4173 3.33335C6.73542 3.33335 3.75065 6.31812 3.75065 10C3.75065 13.6819 6.73542 16.6667 10.4173 16.6667C14.0992 16.6667 17.084 13.6819 17.084 10C17.084 6.31812 14.0992 3.33335 10.4173 3.33335ZM2.08398 10C2.08398 5.39765 5.81494 1.66669 10.4173 1.66669C15.0197 1.66669 18.7507 5.39765 18.7507 10C18.7507 14.6024 15.0197 18.3334 10.4173 18.3334C5.81494 18.3334 2.08398 14.6024 2.08398 10ZM10.4173 6.18408C10.8776 6.18408 11.2507 6.55717 11.2507 7.01741V10.3369L13.4933 11.0845C13.93 11.23 14.1659 11.7019 14.0204 12.1385C13.8748 12.5752 13.4029 12.8111 12.9663 12.6656L10.1538 11.7281C9.81351 11.6147 9.58398 11.2962 9.58398 10.9375V7.01741C9.58398 6.55717 9.95708 6.18408 10.4173 6.18408Z"></path>
+                                    </svg>
+                                    <small class="value">5 мин. чтения</small>
+                                </div>
+                            </div>
+                            <div class="card-board__header">
+                                <a href="#">
+                                    <h3>Чем так вреден сахар, и почему сахарозаменители не помогут?</h3>
+                                </a>
+                            </div>
+                            <div class="card-board__body gray">
+                                <p>Десерты не оставляют вас равнодушными? Не спешите ругать себя за слабую волю, недостаток мотивации к похудению. Корни этой тяги на самом деле лежат глубоко в нашей биологии</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточки статьи - стандартные -->
+                 <div class="section__body">
+                    <div class="grid-group">
+                        <div class="grid-child" data-grid="4">
+                            <div class="card-article">
+                                <div class="card-article__preview">
+                                    <a href="#">
+                                        <img loading="lazy" src="./img/blog/img-card-blog-02_2x.jpg" alt="Топ советов для роста бизнеса: свой подход, способы и техники">
+                                    </a>
+                                    <div class="card-article__badge-group">
+                                        <div class="card-article__badge">Мышление</div>
+                                    </div>
+                                </div>
+                                <div class="card-article__content">
+                                    <div class="card-article__taxonomy">
+                                        <div class="card-article__date">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.46562 1.66669C5.92586 1.66669 6.29895 2.03978 6.29895 2.50002V2.95239H13.1243V2.50002C13.1243 2.03978 13.4974 1.66669 13.9577 1.66669C14.4179 1.66669 14.791 2.03978 14.791 2.50002V3.00308C16.2197 3.26729 17.291 4.53208 17.291 6.03573V15.25C17.291 16.9431 15.9327 18.3334 14.2355 18.3334H5.34657C3.6493 18.3334 2.29102 16.9431 2.29102 15.25V6.03573C2.29102 4.5883 3.28373 3.36221 4.63229 3.03688V2.50002C4.63229 2.03978 5.00538 1.66669 5.46562 1.66669ZM5.44928 4.61906H5.34657C4.58924 4.61906 3.95768 5.24353 3.95768 6.03573V6.59523H15.6243V6.03573C15.6243 5.24353 14.9928 4.61906 14.2355 4.61906H5.48196C5.47652 4.61917 5.47108 4.61922 5.46562 4.61922C5.46016 4.61922 5.45471 4.61917 5.44928 4.61906ZM15.6243 8.2619H3.95768V15.25C3.95768 16.0422 4.58924 16.6667 5.34657 16.6667H14.2355C14.9928 16.6667 15.6243 16.0422 15.6243 15.25V8.2619Z"></path>
+                                            </svg>
+                                            <small class="value">Янв. 12, 2023</small>
+                                        </div>
+                                        <div class="card-article__time">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.4173 3.33335C6.73542 3.33335 3.75065 6.31812 3.75065 10C3.75065 13.6819 6.73542 16.6667 10.4173 16.6667C14.0992 16.6667 17.084 13.6819 17.084 10C17.084 6.31812 14.0992 3.33335 10.4173 3.33335ZM2.08398 10C2.08398 5.39765 5.81494 1.66669 10.4173 1.66669C15.0197 1.66669 18.7507 5.39765 18.7507 10C18.7507 14.6024 15.0197 18.3334 10.4173 18.3334C5.81494 18.3334 2.08398 14.6024 2.08398 10ZM10.4173 6.18408C10.8776 6.18408 11.2507 6.55717 11.2507 7.01741V10.3369L13.4933 11.0845C13.93 11.23 14.1659 11.7019 14.0204 12.1385C13.8748 12.5752 13.4029 12.8111 12.9663 12.6656L10.1538 11.7281C9.81351 11.6147 9.58398 11.2962 9.58398 10.9375V7.01741C9.58398 6.55717 9.95708 6.18408 10.4173 6.18408Z"></path>
+                                            </svg>
+                                            <small class="value">5 мин. чтения</small>
+                                        </div>
+                                    </div>
+                                    <div class="card-article__header">
+                                        <a href="#">
+                                            <h6>Топ советов для роста бизнеса: свой подход, способы и техники</h6>
+                                        </a>
+                                    </div>
+                                    <div class="card-article__body gray">
+                                        <p>Создать компанию не так сложно, как её развить.И куда важнее не просто операционный подход.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-child" data-grid="6">
+                            <div class="card-article big">
+                                <div class="card-article__preview">
+                                    <a href="#">
+                                        <img loading="lazy" src="./img/blog/img-card-blog-01_2x.jpg" alt="Женское лидерство. Как стать алхимиком своей жизни?">
+                                    </a>
+                                    <div class="card-article__badge-group">
+                                        <div class="card-article__badge">Мышление</div>
+                                    </div>
+                                </div>
+                                <div class="card-article__content no-padding">
+                                    <div class="card-article__header">
+                                        <a href="#">
+                                            <h6>Женское лидерство. Как стать алхимиком своей жизни?</h6>
+                                        </a>
+                                    </div>
+                                    <div class="card-article__body gray">
+                                        <p>Принято думать, что в мире вечной борьбы крупных акул бизнеса и жесткой конкуренции выживают несгибаемые и «железные» люди. И это не считается женскими качествами.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+                
                 <div class="section__body">
                     <div class="grid-group">
                         <div class="grid-child" data-grid="4">
@@ -1094,6 +1309,7 @@
     @@include('blocks/mobile-nav.html')
     @@include('blocks/modals.html')
     <script src="./js/feedbacks.bundle.js"></script>
+    <script src="./js/video.bundle.js"></script>
 </body>
 
 </html>

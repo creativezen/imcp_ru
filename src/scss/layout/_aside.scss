@@ -1,7 +1,57 @@
 @use '../mixins/fluid-size' as size;
+@use '../mixins/disable-mob-hover' as mobile;
 
 .aside {
 	/* Закрепляем блок в сайдбаре при скроле */
 	[data-position='sticky'] {
 	}
+}
+
+.aside-list-content {
+    ul,
+    ol {
+        li {
+            @include size.calculate(font-size, 480px, 1460px, 12px, 14px);
+            color: var(--gray);
+
+            @include mobile.hover {
+                a {
+                    color: var(--black);
+                }
+            }
+        }
+
+        li + * {
+            @include size.calculate(margin-top, 480px, 1460px, 4px, 8px);
+        }
+    }
+}
+
+.aside-author {
+    --avatar-size: 80px;
+
+    .card {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &__avatar {
+        flex-shrink: 0;
+        width: var(--avatar-size);
+        height: var(--avatar-size);
+        border-radius: 50%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    [class*="__taxonomy"] {
+        margin-top: 0;
+    }
 }

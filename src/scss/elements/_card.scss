@@ -77,11 +77,20 @@
     /* карточка с рамкой */
     &.bordered {
         border: 1px solid var(--beige-accent);
+
+        /* Цвет рамки в блоке с содержимым */
+        .aside-list-content & {
+            border-color: var(--gray-border);
+        }
     }
 
     /* c высотой 100%*/
     &.auto {
         height: 100%
+    }
+
+    &.no-padding {
+        padding: 0;
     }
 }
 
@@ -133,8 +142,13 @@
         }
 
         /* для шрифта покрупнее */
-        .medium {
-            @include size.calculate(font-size, 480px, 1460px, 13px, 20px);
+        &.medium {
+            @include size.calculate(font-size, 480px, 1460px, 14px, 20px);
+        }
+
+        /* для крупного шрифта */
+        &.accent {
+            @include size.calculate(font-size, 480px, 1460px, 18px, 26px);
         }
 
         .dark & {
@@ -149,10 +163,6 @@
             color: var(--white);
         }
     }
-
-    /* &__footer {
-        padding-top: var(--card-space-min);
-    } */
 
     /* карточка с фото */
     &__img {
@@ -446,9 +456,14 @@
     @extend .card-properties;
 
     transition: var(--fast);
+    background-color: transparent;
 
     @include mobile.hover {
         transform: translateY(-5px);
+
+        [class*="__body"] {
+            color: var(--black);
+        }
     }
 
     &__preview {
@@ -463,6 +478,20 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
+        }
+
+        .big & {
+            @include size.calculate(height, 480px, 1460px, 200px, 400px);
+        }
+    }
+
+    &__header {
+        a {
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+            }
         }
     }
 
@@ -491,6 +520,12 @@
         
         &.auto {
             height: 100%;
+        }
+
+        &.no-padding {
+            padding: 0;
+            @include size.calculate(margin-top, 480px, 1460px, 16px, 20px);
+            background-color: transparent;
         }
     }
 
@@ -558,8 +593,9 @@
         }
     }
 
-    &__title {
-        // Обрезаем текст по кол-ву строк
+    &__body {
+        position: relative;
+        /* Обрезаем текст по кол-ву строк */
         display: -webkit-box;
         display: -moz-box;
         line-clamp: 3;
@@ -567,30 +603,15 @@
         -webkit-box-orient: vertical;
         -moz-box-orient: vertical;
         overflow: hidden;
-        cursor: pointer;
+        transition: var(--fast);
 
-        @include mobile.hover {
-            color: var(--beige-accent);
+        &.gray {
+            color: var(--gray);
 
             * {
-                color: var(--beige-accent);
+                color: inherit !important;
             }
         }
-
-        * {
-            color: inherit;
-        }
-    }
-
-    &__body {
-        // Обрезаем текст по кол-ву строк
-        display: -webkit-box;
-        display: -moz-box;
-        line-clamp: 3;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        -moz-box-orient: vertical;
-        overflow: hidden;
     }
 
     &__footer {
@@ -856,13 +877,14 @@
 
     &__body {
         @include size.calculate(font-size, 480px, 1460px, 16px, 22px);
-
+        
         > *:not(a) {
             color: var(--gray);
         }
-
+        
         a {
             display: inline-block;
+            @include size.calculate(font-size, 480px, 1460px, 14px, 20px);
             color: var(--black);
             text-decoration: underline !important;
             transition: var(--fast);
@@ -884,8 +906,8 @@
     }
 
     @media only screen and (max-width: 480px) {
-        --photo-width: 180px;
-        --photo-height: 180px;
+        --photo-width: 128px;
+        --photo-height: 128px;
 
         flex-direction: column;
         align-items: center;
@@ -916,6 +938,11 @@
     justify-content: flex-end;
     @include size.calculate(min-height, 480px, 1460px, 390px, 490px);
 
+    .card {
+        flex: auto;
+        justify-content: flex-end;
+    }
+
     &__img {
         position: absolute;
         inset: 0;
@@ -927,5 +954,138 @@
             object-fit: cover;
             object-position: center;
         }
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background-image: var(--gradient-overlay);
+    }
+
+    [class*="__header"] {
+        color: var(--white);
+
+        * {
+            color: inherit !important;
+        }
+
+        a {
+            transition: var(--fast);
+
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+            }
+
+            @include mobile.hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    [class*="__body"] {
+        position: relative;
+        color: var(--beige-accent);
+    }
+
+}
+
+
+/* Карточка статьи - большая */
+.card-board {
+    --board-badge-space: 2em;
+    --board-gap: 22px;
+
+    display: flex;
+    background-color: var(--gray-light);
+    transition: var(--fast);
+
+    @include mobile.hover {
+        transform: translateY(-5px);
+
+        [class*="__body"] {
+            color: var(--black);
+        }
+    }
+
+    > * {
+        flex: 50%;
+    }
+    
+    &__img {
+        position: relative;
+        flex-shrink: 0;
+        width: 100%;
+        @include size.calculate(height, 480px, 1460px, 200px, 490px);
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    [class*='__badge-group'] {
+        bottom: auto;
+        right: auto;
+        top: var(--board-badge-space);
+        left: var(--board-badge-space);
+    }
+
+    &__content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: var(--board-gap);
+        @include size.calculate(padding, 480px, 1460px, 22px, 40px);
+    }
+
+    &__header {
+        @include size.calculate(font-size, 480px, 1460px, 26px, 60px);
+
+         * {
+            font-size: inherit !important;
+        }
+        
+        a {
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+            }
+        }
+    }
+
+    &__body {
+        transition: var(--fast);
+
+        &.gray {
+            color: var(--gray);
+        }
+    }
+
+    &__body,
+    [class*='__taxonomy'] {
+        position: relative;
+    }
+
+    @media only screen and (max-width: 780px) {
+        flex-direction: column;
+
+        > * {
+            flex: auto;
+        }
+
+        &__content {
+            gap: 12px;
+        }
+    }
+
+    @media only screen and (max-width: 680px) {
+        --board-badge-space: 1em;
+        --board-gap: 16px;
     }
 }

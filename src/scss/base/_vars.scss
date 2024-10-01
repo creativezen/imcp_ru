@@ -55,10 +55,14 @@
     
 	/* States colors */
 	--click-beige: #cdbc92;
+    --form-focus: ;
+    --form-success: ;
+    --form-error: ;
 
 	/* Gradient colors */
     --gradient-beige: linear-gradient(225deg, #dac597 0%, #ecddbe 50.27%, #977f50 100%);
     --gradient-white: linear-gradient(180deg, rgba(255,255,255, 0), rgba(255,255,255, 1));
+    --gradient-overlay: linear-gradient(180deg, rgba(20, 35, 64, 0) 0%, #000 100%);
 
 	/* Typography */
 	--font-size: 18px;
@@ -73,6 +77,11 @@
 	--fast: ease 0.3s;
 	--slow: ease 0.6s;
 
+    /* Form settings */
+    --input-height: ;
+    --checkbox-size: 20px;
+
+    /* Other settings */
 	--page-bg: var(--beige-light);
     --shadow-block: 0 4px 54px 0 rgba(136, 125, 118, .15);
     --shadow-default: 0 14px 24px 0 rgba(136, 125, 118, 0.15);
