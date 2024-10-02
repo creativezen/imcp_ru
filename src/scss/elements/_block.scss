@@ -1,90 +1,58 @@
 @use '../mixins/fluid-size' as size;
+@use '../layout/section';
 
 
 .block-author {
-    padding-top: 70px;
-    padding-bottom: 100px;
-    @include size.calculate(padding-inline, 480px, 1460px, 30px, 100px);
-    box-shadow: 0 4px 54px 0 rgba(136, 125, 118, .15);
+    display: flex;
 
-    &__info {
-        display: flex;
-        gap: 40px;
-
-        // Отталкиваем следующий элемент от предыдущего
-        & + * {
-            margin-top: 40px;
-        }
-    }
-
-    &__text {
-        // Отталкиваем следующий элемент от предыдущего
-        > *:not(.title) + * {
-            margin-top: 24px;
-        }
+    > * {
+        flex: 50%;
     }
 
     &__photo {
-        flex-shrink: 0;
-        @include size.calculate(width, 480px, 1460px, 180px, 250px);
-        @include size.calculate(height, 480px, 1460px, 180px, 250px);
+        height: auto;
         overflow: hidden;
-        border-radius: 10000px;
-
-        picture,
+        
         img {
             height: 100%;
             width: 100%;
-            border: inherit;
-        }
-
-        img {
             object-fit: cover;
+            object-position: center;
         }
     }
 
-    &__feedbacks {
-        > * + * {
-            margin-top: 30px;
+    &__content {
+        @include size.calculate(padding, 480px, 1460px, 22px, 40px);
+        background-color: var(--gray-light);
+    }
+
+    &__header {
+        small {
+            @include size.calculate(font-size, 480px, 1460px, 13px, 20px);
+            color: var(--gray);
+        }
+
+        > small + * {
+            margin-top: 20px;
+        }
+    }
+
+    @media only screen and (max-width: 780px) {
+        flex-direction: column;
+        > * {
+            flex: auto;
         }
     }
 
     @media only screen and (max-width: 680px) {
-        padding-top: 30px;
-        padding-bottom: 30px;
-
-        &__info {
-            flex-direction: column-reverse;
-            align-items: center;
-
-            // Отталкиваем следующий элемент от предыдущего
-            & + * {
-                margin-top: 20px;
-            }
-
-            > * {
-                text-align: center;
-            }
-        }
-
-        &__text {
-            // Отталкиваем следующий элемент от предыдущего
-            > *:not(.title) + * {
-                margin-top: 16px;
-            }
-        }
-
-        &__feedbacks {
-            > *:not([class]) {
-                text-align: center;
-            }
-
-            > * + * {
-                margin-top: 20px;
+        &__header {
+            > small + * {
+                margin-top: 12px;
             }
         }
     }
 }
+
 
 .block-offer {
     padding-top: 70px;
@@ -168,4 +136,174 @@
             padding: 20px;
         }
     }
+}
+
+
+.block-cta {
+    display: flex;
+
+    > * {
+        flex: 50%;
+    }
+
+    
+    &__form,
+    &__header,
+    &__body {
+        position: relative;
+    }
+    
+    &__form {
+        @include size.calculate(padding, 480px, 1460px, 22px, 40px);
+
+        .button {
+            width: auto;
+        }
+    }
+
+    &__header {
+        line-height: 0.9;
+
+        h2,h3,h4,h5,h6 {
+            line-height: inherit;
+            background-image: linear-gradient(225deg, #dac597 0%, #ecddbe 50.27%, #977f50 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        & + * {
+            @include size.calculate(margin-top, 480px, 1460px, 20px, 30px);
+        }
+    }
+    
+    &__tagline {
+        @include size.calculate(font-size, 480px, 1460px, 18px, 26px);
+        line-height: 1.1;
+        color: var(--gray-blue);
+
+        & + * {
+            @include size.calculate(margin-top, 480px, 1460px, 16px, 30px);
+        }
+    }
+
+    &__img {
+        height: auto;
+        overflow: hidden;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    @media only screen and (max-width: 780px) {
+        flex-direction: column-reverse;
+
+        > * {
+            flex: auto;
+        }
+
+        &__img {
+            @include size.calculate(height, 480px, 780px, 280px, 400px);
+        }
+    }
+}
+
+
+.block-chesse {
+    &__content {
+        display: flex;
+        
+        > * {
+            flex: 50%;
+        }
+
+        &:nth-child(odd) {
+            [class*="__text"] {
+                background-color: var(--beige-sky);
+            }
+        }
+
+        &:nth-child(even) {
+            flex-direction: row-reverse;
+            
+            [class*="__text"] {
+                background-color: var(--gray-sky);
+            }
+        }
+    }
+
+    &__img {
+        height: auto;
+        @include size.calculate(min-height, 780px, 1460px, 300px, 460px);
+        overflow: hidden;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &__text {
+        @include size.calculate(padding, 480px, 1460px, 22px, 40px);
+        color: var(--gray);
+
+        > p + *:not([class*="button"]) {
+            margin-top: 14px;
+        }
+
+        > * + [class*="button"] {
+            margin-top: 20px;
+        }
+    }
+
+    @media only screen and (max-width: 780px) {
+        &__content {
+            &:nth-child(even),
+            &:nth-child(odd) {
+                flex-direction: column;
+            }
+
+            > * {
+                flex: auto;
+            }
+        }
+
+        &__img {
+            min-height: auto;
+            @include size.calculate(height, 480px, 780px, 200px, 390px);
+        }
+    }
+
+    @media only screen and (max-width: 680px) {
+        &__text {
+            > p + *:not([class*="button"]) {
+                margin-top: 10px;
+            }
+
+            > * + [class*="button"] {
+                margin-top: 14px;
+            }
+        }
+    }
+}
+
+
+.block-main {
+    position: relative;
+    @include size.calculate(padding-top, 480px, 1460px, 40px, 70px);
+    @include size.calculate(padding-bottom, 480px, 1460px, 40px, 100px);
+    @include size.calculate(padding-inline, 480px, 1460px, 22px, 60px);
+}
+
+
+.block-offer {
+    position: relative;
+    @include size.calculate(padding, 480px, 1460px, 22px, 40px);
 }

@@ -42,6 +42,10 @@ h5,
 h6 {
 	@extend .title-property;
     color: var(--black);
+
+    .gray-blue & {
+        color: var(--white);
+    }
 }
 
 h1 {
@@ -131,6 +135,18 @@ blockquote {
     }
 }
 
+
+p,
+b,
+strong,
+span,
+div {
+    .gray-blue & {
+        color: var(--gray-blue);
+    }
+}
+
+
 blockquote {
     > *:not([class]) + *:not([class]) {
         margin-top: calc(var(--scale) * 1.4);
@@ -148,9 +164,19 @@ ol:not([class]) {
         padding-left: 1.2em;
     }
 
+    li + * {
+        margin-top: 8px;
+    }
+
     * {
         font-size: inherit;
         line-height: inherit;
+    }
+
+    @media only screen and (max-width: 680px) {
+        li + * {
+            margin-top: 4px;
+        }
     }
 }
 
@@ -177,6 +203,18 @@ ul:not([class]) {
     & + .small-accent {
         display: block;
         margin-top: calc(var(--scale) * 1.4);
+    }
+
+    &.centered {
+        text-align: center;
+    }
+
+    &.gradient {
+        background-image: var(--gradient-beige);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
     }
 }
 

@@ -6,6 +6,7 @@
     @@include('blocks/header.html')
 
     <div>
+        <!-- Главная экран - главная страница -->
         <section id="hero" class="section hero">
             <div class="background-hero-large"></div>
             <div class="container">
@@ -26,6 +27,7 @@
             </div>
         </section>
 
+        <!-- Главный экран типовая страница -->
         <section class="section hero">
             <div class="background-hero-large"></div>
             <div class="container">
@@ -73,6 +75,7 @@
             </div>
         </section>
 
+        <!-- Главный экран статья -->
         <section class="section hero">
             <div class="background-hero-large"></div>
             <div class="container">
@@ -91,11 +94,14 @@
                         </div>
                     </div>
                     <h1 class="title-hero white center">Топ советов для роста бизнеса: свой подход, способы и техники</h1>
-                    <img src="img/blog/img-article-page-hero-01_2x.jpg" alt="Топ советов для роста бизнеса: свой подход, способы и техники">
+                    <div class="hero__img">
+                        <img src="img/blog/img-article-page-hero-01_2x.jpg" alt="Топ советов для роста бизнеса: свой подход, способы и техники">
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Главный экран история успеха -->
         <section class="section hero">
             <div class="background-hero-large"></div>
             <div class="container">
@@ -127,6 +133,7 @@
             </div>
         </section>
     
+        <!-- Заголовки -->
         <section class="section stream">
             <div class="container">
                 <div class="section__header">
@@ -157,7 +164,7 @@
                     </div>
                 </div>
 
-                <!-- Блок форма контакты -->
+                <!-- Блок форма стандартная -->
                 <div class="section__body">
                     <form id="form-contacts" class="form js-form" data-sitekey="">
                         <input type="hidden" name="recaptcha_response" class="recaptcha-response" value="">
@@ -186,6 +193,182 @@
                             <button class="button" type="submit" data-autofocus="name"><span>Отправить</span></button>
                         </fieldset>
                     </form>
+                </div>
+
+                <!-- Блок с формой и фото -->
+                <div class="section__body">
+                    <div class="block-cta">
+                        <div class="block-cta__form">
+                            <div class="background-block-cta"></div>
+                            <div class="block-cta__header">
+                                <h3>Как выбрать направление обучения</h3>
+                            </div>
+                            <div class="block-cta__body">
+                                <p class="block-cta__tagline">Получите консультацию приемной комиссии. Для этого заполните форму</p>
+                                <form id="form-cta" class="form blured js-form" data-sitekey="">
+                                    <input type="hidden" name="recaptcha_response" class="recaptcha-response" value="">
+                                    <input type="hidden" name="form-name" value="">
+                                    <input type="hidden" name="url" value="">
+                                    <fieldset class="form__body">
+                                        <div class="form__item">
+                                            <input class="input input-name js-input-email" type="text" name="name" placeholder="Имя" required="">
+                                        </div>
+                                        <div class="form__item">
+                                            <input class="input input-email js-input-email" type="email" name="email" placeholder="E-mail" required="">
+                                        </div>
+                                        <div class="form__item">
+                                            <input class="input input-tel js-input-tel" type="tel" name="phone" placeholder="Телефон" required="">
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="form__footer">
+                                        <label class="label label-checkbox agree" for="agree-cta">
+                                            <input class="checkbox small input-agree" id="agree-cta" type="checkbox" required="">
+                                            <span class="label-checkbox__text">Даю согласие на обработку и использование персональных данных согласно 152-ФЗ, с
+                                                <!--noindex-->
+                                                    <a href="#" rel="nofollow" target="_blank">правилами политики обработки персональных данных</a>
+                                                <!--/noindex-->
+                                                ознакомлен</span>
+                                        </label>
+                                        <button class="button" type="submit" data-autofocus="name"><span>Получить консультацию</span></button>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="block-cta__img">
+                            <img loading="lazy" src="img/block/img-block-cta-01_2x.jpg" alt="Как выбрать направление обучения">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок основатель -->
+                <div class="section__body">
+                    <div class="block-author">
+                        <div class="block-author__photo">
+                            <img src="img/block/img-block-author-01_2x.jpg" alt="">
+                        </div>
+                        <div class="block-author__content">
+                            <div class="block-author__header">
+                                <small>Основатель Академии</small>
+                                <h3>Михаил Саидов</h3>
+                                <ul>
+                                    <li>Основатель Института Метакогнитивного Программирования (IMCP) и автор 20+ коучинговых программ </li>
+                                    <li>Член Коучингового Совета Forbes (США)</li>
+                                    <li>Создатель экспоненционального коучинга</li>
+                                    <li>Автор бестселлеров «Дневник эффективности», «Разговоры, которые меняют жизнь»</li>
+                                    <li>МВА Школы бизнеса Шулих в Йоркском Университете (Торонто, Канада), реципиент второй самой большой стипендии Сеймура Шулиха</li>
+                                    <li>Более 150 000 студентов по всему миру</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Шахматный блок -->
+                <div class="section__body">
+                    <div class="block-chesse">
+                        <div class="block-chesse__content">
+                            <div class="block-chesse__img">
+                                <img loading="lazy" src="img/block/img-block-chesse-01_2x.jpg" alt="Иллюминация">
+                            </div>
+                            <div class="block-chesse__text">
+                                <h4>Иллюминация</h4>
+                                <p>Единственный в коучинге трансформационный тренинг, использующий психосенсорную модальность.</p>
+                                <p>Тренинг стоит на стыке гипнотерапии и нейрофидбэка. Дает экологичный и долгосрочный трансформационный эффект за счет альтернативных способов восприятия себя и реальности</p>
+                                <a href="#" class="button"><span>Кнопка опциональна</span></a>
+                            </div>
+                        </div>
+                        <div class="block-chesse__content">
+                            <div class="block-chesse__img">
+                                <img loading="lazy" src="img/block/img-block-chesse-02_2x.jpg" alt="Драйв">
+                            </div>
+                            <div class="block-chesse__text">
+                                <h4>Драйв</h4>
+                                <p>Бизнес-тренинг для владельцев компаний, предпринимателей, СЕО и ТОП-менеджеров, которые ищут новые точки роста для своего бизнеса.</p>
+                                <a href="#" class="button"><span>Кнопка опциональна</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="block-main">
+                    <div class="background-dark-block-bg"></div>
+                    <div class="section__header">
+                        <h2 class="title centered gradient">Экспоненциальный коучинг</h2>
+                    </div>
+                    <div class="section__body">
+                        <div class="grid-group">
+                            <div class="grid-child" data-grid="4">
+                                <div class="card blue auto">
+                                    <div class="card__header white">
+                                        <h5>Построен</h5>
+                                    </div>
+                                    <div class="card__body white">
+                                        <p>на глубоких многолетних исследованиях в области когниции, психотерапии, биопсихологии, нейрофизиологии, биомедицины и превентивной медицины.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-child" data-grid="4">
+                                <div class="card blue auto">
+                                    <div class="card__header white">
+                                        <h5>Работает</h5>
+                                    </div>
+                                    <div class="card__body white">
+                                        <p>со здоровьем человека на 4-х уровнях:</p>
+                                        <ul>
+                                            <li>ментальном;</li>
+                                            <li>эмоциональном;</li>
+                                            <li>физическом;</li>
+                                            <li>финансовом;</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-child" data-grid="4">
+                                <div class="card blue auto">
+                                    <div class="card__header white">
+                                        <h5>Помогает</h5>
+                                    </div>
+                                    <div class="card__body white">
+                                        <ul>
+                                            <li>управлять эмоциями и мыслить конструктивно</li>
+                                            <li>разблокировать свой природный потенциал</li>
+                                            <li>получать желаемое во всех жизненных аспектах</li>
+                                            <li>чувствовать себя лучше и помогать окружающим</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block-main">
+                    <div class="background-dark-block-bg"></div>
+                    <div class="section__header">
+                        <h2 class="title gradient">Обучение в программе «Система20»</h2>
+                    </div>
+                    <div class="section__body gray-blue">
+                        <div class="article no-padding transparent">
+                            <p>заточено на практику: вы учитесь работать с мышлением предпринимателей. А еще можно стать своим первым клиентом, трансформировать свой бизнес и неизбежно — самого себя. Все инструменты применимы к разным проектам: по философии, масштабу, формату. Вы просто докручиваете их в тандеме с клиентом для получения быстрого, прогнозируемого результата.</p>
+                            <p>Скорректировать стратегию, гипотезы — быстро и точечно — вам помогут бизнес-супервайзеры программы: шансов не научиться не будет. А усилить и ускорить личную трансформацию вы сможете на встречах с личным коучем.</p>
+                            <h6>Записывайтесь на собеседование в программу «Система_20» по ссылке ниже</h6>
+                        </div>
+                    </div>
+                    <div class="section__footer">
+                        <a href="#" class="button"><span>Подать заявку</span></a>
+                    </div>
+                </div>
+                <div class="block-offer">
+                    <div class="background-dark-block-offer-bg"></div>
+                    <div class="article no-padding transparent">
+                        <h4>2 год:</h4>
+                        <strong>Обучение в Лиге Института Метакогнитивного Программирования</strong>
+                        <p>Углубленное изучение доказательных методов коучинга в бизнесе, здоровье и жизни. Профильное образование позволяет стать основным экспертом на рынке в выбранной нише и специальности.</p>
+                        <a href="#" class="button"><span>Подать заявку</span></a>
+                    </div>
                 </div>
             </div>
         </section>

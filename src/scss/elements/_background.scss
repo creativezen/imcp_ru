@@ -1,4 +1,5 @@
-$image-path: '~src/img/background/';
+@use '../mixins/background' as image-set;
+
 .background-properties {
     /* обшщие свойства для фоновых картинок */
     position: absolute;
@@ -11,74 +12,69 @@ $image-path: '~src/img/background/';
     background-size: cover;
 }
 
-/* версия стилей для WP фон для большого экрана на главной */
+/* фон главного экрана на главной странице */
 .background-hero-large {
     @extend .background-properties;
 
-    /* версия фона для ПК */
-    background-image: url('../img/background/hero/bg-large-hero-desktop.jpg');
-    background-image: image-set(
-        url("../img/background/hero/bg-large-hero-desktop.jpg") 1x type("image/jpeg"),
-        url("../img/background/hero/bg-large-hero-desktop_x2.jpg") 2x type("image/jpeg"),
-        url("../img/background/hero/bg-large-hero-desktop.webp") 1x type("image/webp"),
-        url("../img/background/hero/bg-large-hero-desktop_x2.webp") 2x type("image/webp"),
-        );
-        
-    /* версия фона для планшета */
-    @media only screen and (max-width: 980px) {
-        background-image: url("../img/background/hero/bg-large-hero-tablet.jpg");
-        background-image: image-set(
-            url("../img/background/hero/bg-large-hero-tablet.jpg") 1x type("image/jpeg"),
-            url("../img/background/hero/bg-large-hero-tablet_x2.jpg") 2x type("image/jpeg"),
-            url("../img/background/hero/bg-large-hero-tablet.webp") 1x type("image/webp"),
-            url("../img/background/hero/bg-large-hero-tablet_x2.webp") 2x type("image/webp"),
-        );
-    }
-
-    /* версия фона для смартфонов */
-    @media only screen and (max-width: 480px) {
-        background-image: url("../img/background/hero/bg-large-hero-phone.jpg");
-        background-image: image-set(
-            url("../img/background/hero/bg-large-hero-phone.jpg") 1x type("image/jpeg"),
-            url("../img/background/hero/bg-large-hero-phone_x2.jpg") 2x type("image/jpeg"),
-            url("../img/background/hero/bg-large-hero-phone.webp") 1x type("image/webp"),
-            url("../img/background/hero/bg-large-hero-phone_x2.webp") 2x type("image/webp"),
-        );
-    }
+    /* генерация путей для всех устройств */
+    @include image-set.mobile(
+        '../img/background/hero/bg-large-hero-desktop',
+        '../img/background/hero/bg-large-hero-desktop_x2',
+        '../img/background/hero/bg-large-hero-tablet',
+        '../img/background/hero/bg-large-hero-tablet_x2',
+        '../img/background/hero/bg-large-hero-phone',
+        '../img/background/hero/bg-large-hero-phone_x2',
+    );
 }
 
-/* версия с тилей для WP фон для стандартной страницы */
+/* фон стандартной страницы */
 .background-hero {
     @extend .background-properties;
 
-    /* версия фона для ПК */
-    background-image: url("../img/background/hero/bg-hero-desktop.jpg");
-    background-image: image-set(
-        url("../img/background/hero/bg-hero-desktop.jpg") 1x type("image/jpeg"),
-        url("../img/background/hero/bg-hero-desktop_x2.jpg") 2x type("image/jpeg"),
-        url("../img/background/hero/bg-hero-desktop.webp") 1x type("image/webp"),
-        url("../img/background/hero/bg-hero-desktop_x2.webp") 2x type("image/webp"),
-        );
-        
-    /* версия фона для планшета */
-    @media only screen and (max-width: 980px) {
-        background-image: url("../img/background/hero/bg-hero-tablet.jpg");
-        background-image: image-set(
-            url("../img/background/hero/bg-hero-tablet.jpg") 1x type("image/jpeg"),
-            url("../img/background/hero/bg-hero-tablet_x2.jpg") 2x type("image/jpeg"),
-            url("../img/background/hero/bg-hero-tablet.webp") 1x type("image/webp"),
-            url("../img/background/hero/bg-hero-tablet_x2.webp") 2x type("image/webp"),
-        );
-    }
+    /* генерация путей для всех устройств */
+    @include image-set.mobile(
+        '../img/background/hero/bg-hero-desktop',
+        '../img/background/hero/bg-hero-desktop_2x',
+        '../img/background/hero/bg-hero-tablet',
+        '../img/background/hero/bg-hero-tablet_2x',
+        '../img/background/hero/bg-hero-phone',
+        '../img/background/hero/bg-hero-phone_2x',
+    );
+}
 
-    /* версия фона для смартфонов */
-    @media only screen and (max-width: 480px) {
-        background-image: url("../img/background/hero/bg-hero-phone.jpg");
-        background-image: image-set(
-            url("../img/background/hero/bg-hero-phone.jpg") 1x type("image/jpeg"),
-            url("../img/background/hero/bg-hero-phone_x2.jpg") 2x type("image/jpeg"),
-            url("../img/background/hero/bg-hero-phone.webp") 1x type("image/webp"),
-            url("../img/background/hero/bg-hero-phone_x2.webp") 2x type("image/webp"),
-        );
-    }
+
+.background-block-cta {
+    @extend .background-properties;
+
+    @include image-set.desktop(
+        '../img/background/block/bg-block-cta',
+        '../img/background/block/bg-block-cta_2x',
+    )
+}
+
+
+.background-dark-block-bg {
+    @extend .background-properties;
+
+    @include image-set.mobile(
+        '../img/background/block/bg-block-desktop',
+        '../img/background/block/bg-block-desktop_2x',
+        '../img/background/block/bg-block-tablet',
+        '../img/background/block/bg-block-tablet_2x',
+        '../img/background/block/bg-block-phone',
+        '../img/background/block/bg-block-phone_2x',
+    )
+}
+
+.background-dark-block-offer-bg {
+    @extend .background-properties;
+
+    @include image-set.mobile(
+        '../img/background/block/bg-block-offer-desktop',
+        '../img/background/block/bg-block-offer-desktop_2x',
+        '../img/background/block/bg-block-offer-tablet',
+        '../img/background/block/bg-block-offer-tablet_2x',
+        '../img/background/block/bg-block-offer-phone',
+        '../img/background/block/bg-block-offer-phone_2x',
+    )
 }

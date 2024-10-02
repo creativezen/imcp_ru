@@ -23,6 +23,14 @@
             color: var(--white)
         }
     }
+
+    &.no-padding {
+        padding: 0;
+    }
+
+    &.transparent {
+        background-color: transparent;
+    }
 }
 
 /* article */

@@ -4,6 +4,7 @@
 :root {
 	/* Layout container */
 	--scale: calc(1vw + 1vh);
+    --grid-gap: calc(var(--space) * 0.6);
 
 	--radius-small: 4px;
 	--radius-medium: 8px;
@@ -11,9 +12,6 @@
 
     --header-height: 100px;
 
-    --input-height: 86px;
-    --input-filter-height: 62px;
-    
 	--space: calc(var(--scale) * 1.4);
 	--space-small: calc(var(--scale) * 0.8);
 	--space-large: calc(var(--scale) * 2);
@@ -29,8 +27,6 @@
 
     --article-width: 1300px;
     --article-offset: 360px;
-
-
 
 	/* Brand colors */
     --white: #ffffff;
@@ -55,9 +51,13 @@
     
 	/* States colors */
 	--click-beige: #cdbc92;
-    --form-focus: ;
-    --form-success: ;
-    --form-error: ;
+    --input-focus: #9caac2;
+    
+
+    /* Form settings */
+    --input-space: 20px;
+    --input-height: 66px;
+    --checkbox-size: 20px;
 
 	/* Gradient colors */
     --gradient-beige: linear-gradient(225deg, #dac597 0%, #ecddbe 50.27%, #977f50 100%);
@@ -77,10 +77,6 @@
 	--fast: ease 0.3s;
 	--slow: ease 0.6s;
 
-    /* Form settings */
-    --input-height: ;
-    --checkbox-size: 20px;
-
     /* Other settings */
 	--page-bg: var(--beige-light);
     --shadow-block: 0 4px 54px 0 rgba(136, 125, 118, .15);
@@ -93,6 +89,8 @@
 
     @media only screen and (max-width: 1080px) {
         --header-height: 70px;
+        --input-height: 50px;
+        --input-space: 16px;
     }
 
     @media only screen and (max-width: 780px) {
@@ -100,8 +98,11 @@
     }
     
     @media only screen and (max-width: 680px) {
+        /* регулируем вертикальный отступ между потомками на мобильных */
+        --grid-gap: calc(var(--space) * 1.2);
         --header-height: 66px;
         --input-filter-height: 44px;
+        --font-height: 1.4;
     }
 
     @media only screen and (max-width: 580px) {
