@@ -295,15 +295,80 @@
 }
 
 
-.block-main {
+.block-section {
     position: relative;
-    @include size.calculate(padding-top, 480px, 1460px, 40px, 70px);
-    @include size.calculate(padding-bottom, 480px, 1460px, 40px, 100px);
-    @include size.calculate(padding-inline, 480px, 1460px, 22px, 60px);
-}
+    @include size.calculate(font-size, 480px, 1460px, 15px, 18px);
+    line-height: 1.4;
+    
+    &__spacing {
+        position: relative;
+        @include size.calculate(padding-top, 480px, 1460px, 40px, 70px);
+        @include size.calculate(padding-bottom, 480px, 1460px, 40px, 100px);
+        @include size.calculate(padding-inline, 480px, 1460px, 22px, 60px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
+        .offer & {
+            @include size.calculate(padding-top, 480px, 1460px, 22px, 40px);
+            @include size.calculate(padding-bottom, 480px, 1460px, 22px, 60px);
+        }
+    }
 
-.block-offer {
-    position: relative;
-    @include size.calculate(padding, 480px, 1460px, 22px, 40px);
+    &__img {
+        flex-shrink: 0;
+        height: auto;
+        max-width: 38%;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &__content {
+        position: relative;
+        display: flex;
+
+        .centered & {
+            justify-content: center;
+        }
+    }
+    
+    &__tagline {
+        @include size.calculate(font-size, 480px, 1460px, 18px, 26px);
+        line-height: 1.4;
+        color: var(--gray-blue);
+        
+        .darkness & {
+            color: var(--white);
+        }
+        
+        .white &,
+        .gray-light &,
+        .gray-sky &,
+        .beige-sky & {
+            color: var(--black);
+        }
+    }
+
+    &.white {
+        background-color: var(--white);
+    }
+
+    &.gray-light {
+        background-color: var(--gray-light);
+    }
+    &.gray-sky {
+        background-color: var(--gray-sky);
+    }
+    &.beige-sky {
+        background-color: var(--beige-sky);
+    }
+
+    &.centered {
+        text-align: center;
+    }
 }

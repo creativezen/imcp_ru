@@ -32,6 +32,14 @@
     &.right, .right {
         text-align: right;
     }
+
+    &.gradient, .gradient {
+        background-image: var(--gradient-beige);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+    }
 }
 
 h1,
@@ -141,8 +149,12 @@ b,
 strong,
 span,
 div {
-    .gray-blue & {
+    .gray-blue &:not([class]):not(.button span) {
         color: var(--gray-blue);
+    }
+
+    .gray &:not([class]):not(.button span) {
+        color: var(--gray);
     }
 }
 
@@ -153,8 +165,22 @@ blockquote {
     }
 }
 
+small {
+    &.gray {
+        color: var(--gray);
+    }
+
+    .section__footer & {
+        display: block;
+    }
+}
+
 small + small {
 	margin-top: calc(var(--scale) * 0.2);
+}
+
+* + small {
+    margin-top: calc(var(--scale) * 0.6);
 }
 
 ul:not([class]),
