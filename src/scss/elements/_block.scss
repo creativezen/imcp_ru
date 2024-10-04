@@ -319,12 +319,16 @@
         flex-shrink: 0;
         height: auto;
         max-width: 38%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
         img {
             height: 100%;
             width: 100%;
             object-fit: cover;
-            object-position: center;
         }
     }
 
@@ -370,5 +374,22 @@
 
     &.centered {
         text-align: center;
+    }
+
+    @media only screen and (max-width: 880px) {
+        &__img {
+            max-width: 50%;
+        }
+    }
+
+    @media only screen and (max-width: 680px) {
+        &__content {
+            flex-direction: column-reverse;
+        }
+
+        &__img {
+            max-width: none;
+            @include size.calculate(max-height, 480px, 680px, 300px, 400px);
+        }
     }
 }
