@@ -29,10 +29,17 @@
         background-color: var(--black-blue);
     }
 
-    .bg-gray {
+    &.bg-gray {
         background-color: var(--gray-light);
     }
-    
+
+    &.bg-gray-sky {
+        background-color: var(--gray-sky);
+    }
+
+    &.bg-beige-sky {
+        background-color: var(--beige-sky);
+    }
 }
 
 /* section */

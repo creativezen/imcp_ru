@@ -1,18 +1,23 @@
 @use '../mixins/fluid-size' as size;
 @use '../mixins/disable-mob-hover' as mobile;
 
-.aside {
-	/* Закрепляем блок в сайдбаре при скроле */
-	[data-position='sticky'] {
-	}
-}
-
 .aside-list-content {
+    --aside-list-space: 22px;
+
+    .card {
+        padding: var(--aside-list-space);
+    }
+
     ul,
     ol {
         li {
             @include size.calculate(font-size, 480px, 1460px, 12px, 14px);
             color: var(--gray);
+
+            a {
+                font-size: inherit !important;
+                margin-top: 0 !important;
+            }
 
             @include mobile.hover {
                 a {
@@ -25,12 +30,18 @@
             @include size.calculate(margin-top, 480px, 1460px, 4px, 8px);
         }
     }
+
+    @media only screen and (max-width: 680px) {
+        --aside-list-space: 18px;
+    }
 }
 
 .aside-author {
     --avatar-size: 80px;
+    --aside-author-space: 22px;
 
     .card {
+        padding: var(--aside-author-space);
         flex-direction: row;
         align-items: center;
     }
@@ -53,5 +64,10 @@
 
     [class*="__taxonomy"] {
         margin-top: 0;
+    }
+
+    @media only screen and (max-width: 680px) {
+        --avatar-size: 54px;
+        --aside-author-space: 18px;
     }
 }

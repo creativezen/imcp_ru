@@ -47,6 +47,7 @@
 	--gray-light: #F2F2F2;
 	--gray-border: #e1e1e1;
     --gray-sky: #F5F3F7;
+    --gray-dark: #565B63;
     
     
 	/* States colors */
@@ -83,7 +84,7 @@
     --shadow-default: 0 14px 24px 0 rgba(136, 125, 118, 0.15);
 
     @media only screen and (max-width: 1480px) {
-        --content-width: 1200px;
+        --content-width: 1280px;
         --header-height: 90px;
     }
 

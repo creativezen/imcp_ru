@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('blocks/head.html')
+
+<body>
+    @@include('blocks/header.html')
+
+    <main>
+        <section id="hero" class="section hero">
+            <div class="background-hero-large"></div>
+            <div class="container">
+                <div class="hero__content">
+                    <div class="hero__breadcrumbs">
+                        <div class="breadcrumbs">
+                            <nav aria-label="breadcrumbs">
+                                <p>
+                                    <a href="#">Главная</a>
+                                    <span class="separator"> / </span>
+                                    <span class="last">Приемная комиссия</span>
+                                </p>
+                            </nav>
+                        </div>
+                    </div>
+                    <h1 class="title-hero white center">Приемная комиссия</h1>
+                    <div class="accent white">
+                        <p>Для каждой программы АЭК и факультета Института MCP действуют свои условия и критерии отбора.</p>
+                        <p>Чтобы получить консультацию приемной комиссии заполните форму.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section stream">
+            <div class="container">
+                <div class="section__body">
+                    <div class="block-cta">
+                        <div class="block-cta__form">
+                            <div class="background-block-cta"></div>
+                            <div class="block-cta__header">
+                                <h3>Как выбрать направление обучения</h3>
+                            </div>
+                            <div class="block-cta__body">
+                                <p class="block-cta__tagline">Получите консультацию приемной комиссии. Для этого заполните форму</p>
+                                <form id="form-cta" class="form blured js-form" data-sitekey="">
+                                    <input type="hidden" name="recaptcha_response" class="recaptcha-response" value="">
+                                    <input type="hidden" name="form-name" value="">
+                                    <input type="hidden" name="url" value="">
+                                    <fieldset class="form__body">
+                                        <div class="form__item">
+                                            <input class="input input-name js-input-email" type="text" name="name" placeholder="Имя" required="">
+                                        <div data-lastpass-icon-root="" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"></div></div>
+                                        <div class="form__item">
+                                            <input class="input input-email js-input-email" type="email" name="email" placeholder="E-mail" required="">
+                                        </div>
+                                        <div class="form__item">
+                                            <input class="input input-tel js-input-tel" type="tel" name="phone" placeholder="Телефон" required="">
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="form__footer">
+                                        <label class="label label-checkbox agree" for="agree-cta">
+                                            <input class="checkbox small input-agree" id="agree-cta" type="checkbox" required="">
+                                            <span class="label-checkbox__text">Даю согласие на обработку и использование персональных данных согласно 152-ФЗ, с
+                                                <!--noindex-->
+                                                    <a href="#" rel="nofollow" target="_blank">правилами политики обработки персональных данных</a>
+                                                <!--/noindex-->
+                                                ознакомлен</span>
+                                        </label>
+                                        <button class="button" type="submit" data-autofocus="name"><span>Получить консультацию</span></button>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="block-cta__img">
+                            <img loading="lazy" src="img/block/img-block-cta-01_2x.jpg" alt="Как выбрать направление обучения">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section stream bg-beige-sky">
+            <div class="container">
+                <div class="section__body">
+                    <div class="block-section offer darkness">
+                        <div class="background-dark-block-offer-bg"></div>
+                        <div class="block-section__content">
+                            <div class="block-section__spacing">
+                                <div class="section__header">
+                                    <h3 class="gradient">Заголовок баннера</h3>
+                                </div>
+                                <div class="section__body gray-blue">
+                                    <div class="article no-padding transparent">
+                                        <p class="block-section__tagline">Обучение в Лиге Института Метакогнитивного Программирования</p>
+                                        <p>Углубленное изучение доказательных методов коучинга в бизнесе, здоровье и жизни. Профильное образование позволяет стать основным экспертом на рынке в выбранной нише и специальности. </p>
+                                    </div>
+                                </div>
+                                <div class="section__footer">
+                                    <a href="#" class="button"><span>Узнать подробнее о лиге</span></a>
+                                </div>
+                            </div>
+                            <div class="block-section__img">
+                                <img loading="lazy" src="img/block/img-block-section-01_2x.png" alt="Заголовок баннера">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    @@include('blocks/footer.html')
+    @@include('blocks/mobile-nav.html')
+    @@include('blocks/modals.html')
+</body>
+</html>

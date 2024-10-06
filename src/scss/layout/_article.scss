@@ -10,9 +10,7 @@
 .article-proto {
 	@extend .article-settings;
 
-	@include size.calculate(padding-inline, 480px, 1460px, 14px, 100px);
-	@include size.calculate(padding-top, 480px, 1460px, 30px, 60px);
-	@include size.calculate(padding-bottom, 480px, 1460px, 14px, 60px);
+	@include size.calculate(padding, 480px, 1460px, 22px, 60px);
     position: relative;
     z-index: 2;
 
@@ -45,37 +43,47 @@
         margin-top: -300px;
     }
 
-	> * + h2 {
+	 * + h2 {
 		margin-top: calc(var(--scale) * 1.8);
 	}
 
-	> * + h3 {
-		margin-top: calc(var(--scale) * 1.8);
+	 * + h3 {
+		margin-top: calc(var(--scale) * 2.4);
 	}
 
-	> * + h4 {
+	 * + h4 {
 		margin-top: calc(var(--scale) * 1.6);
 	}
 
-	> * + h5 {
+	 * + h5 {
 		margin-top: calc(var(--scale) * 1);
 	}
 
-	> * + h6 {
+	 * + h6 {
 		margin-top: calc(var(--scale) * 0.8);
 	}
 
-	> * + ul,
-	> * + ol {
+	 * + ul,
+	 * + ol {
 		margin-top: calc(var(--scale) * 0.8);
 	}
 
-	> *:not(h2):not(h3):not(h4):not(h5):not(h6) + p,
-	> *:not(h2):not(h3):not(h4):not(h5):not(h6) + blockquote,
-	> *:not(h2):not(h3):not(h4):not(h5):not(h6) + .blockquote,
-	> *:not(h2):not(h3):not(h4):not(h5):not(h6) + img {
-		margin-top: calc(var(--scale) * 1);
+	*:not(h2):not(h3):not(h4):not(h5):not(h6) + p,
+	*:not(h2):not(h3):not(h4):not(h5):not(h6) + strong,
+	*:not(h2):not(h3):not(h4):not(h5):not(h6) + b,
+	*:not(h2):not(h3):not(h4):not(h5):not(h6) + em,
+	*:not(h2):not(h3):not(h4):not(h5):not(h6) + i,
+	*:not(h2):not(h3):not(h4):not(h5):not(h6) + blockquote,
+	*:not(h2):not(h3):not(h4):not(h5):not(h6) + .blockquote,
+	*:not(h2):not(h3):not(h4):not(h5):not(h6) + img {
+		margin-top: calc(var(--scale) * 0.8);
 	}
+
+    * + b,
+    * + em,
+    * + i {
+        display: block;
+    }
     
 	img {
         display: inline-block;
@@ -88,7 +96,7 @@
     }
 
 	ol,
-	ul {
+	ul:not([class*="-content__links"]) {
 		padding-left: var(--article-space-small);
 		line-height: 1.4;
 

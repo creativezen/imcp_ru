@@ -16,6 +16,10 @@
     background-color: var(--white);
     overflow: hidden;
 
+    [class*="__body"] {
+        line-height: 1.4;
+    }
+
     /* карточка с тенью */
     &.shadow {
         box-shadow: var(--shadow-default);
@@ -495,6 +499,12 @@
                 position: absolute;
                 inset: 0;
             }
+
+            @include mobile.hover {
+                h3,h4,h5,h6 {
+                    color: var(--beige-text);
+                }
+            }
         }
     }
 
@@ -853,7 +863,8 @@
     &__photo {
         flex-shrink: 0;
         width: var(--photo-width);
-        height: var(--photo-height);
+        min-height: var(--photo-height);
+        height: auto;
 
         img {
             width: 100%;
@@ -879,7 +890,7 @@
     }
 
     &__body {
-        @include size.calculate(font-size, 480px, 1460px, 16px, 22px);
+        @include size.calculate(font-size, 480px, 1460px, 14px, 20px);
         
         > *:not(a) {
             color: var(--gray);
@@ -918,6 +929,8 @@
         gap: 20px;
 
         &__photo {
+            height: var(--photo-height);
+            min-height: auto;
             border-radius: 50%;
             overflow: hidden;
 
@@ -940,6 +953,12 @@
 
     justify-content: flex-end;
     @include size.calculate(min-height, 480px, 1460px, 390px, 490px);
+
+    @include mobile.hover {
+        [class*="__body"] {
+            color: var(--white);
+        }
+    }
 
     .card {
         flex: auto;
@@ -982,7 +1001,9 @@
             }
 
             @include mobile.hover {
-                text-decoration: underline;
+                h3,h4,h5,h6 {
+                    color: var(--beige-text) !important;
+                }
             }
         }
     }
@@ -990,8 +1011,15 @@
     [class*="__body"] {
         position: relative;
         color: var(--beige-accent);
+        transition: var(--fast);
     }
 
+    .button.zero {
+        @include mobile.hover {
+            background-color: var(--beige-accent);
+            color: var(--black);
+        }
+    }
 }
 
 

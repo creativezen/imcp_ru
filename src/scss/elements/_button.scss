@@ -93,6 +93,11 @@
         @include mobile.hover {
             border-color: var(--beige-accent);
             color: var(--beige-accent);
+
+            .footer & {
+                border-color: rgba(222, 204, 162, 1);
+                color: var(--white);
+            }
         }
 
         &::before {
@@ -107,6 +112,16 @@
             svg {
                 fill: var(--white);
             }
+        }
+
+        .footer & {
+            border-color: rgba(222, 204, 162, 0.4);
+            color: var(--gray);
+        }
+
+        &.active {
+            background-color: var(--beige-accent);
+            pointer-events: none;
         }
     }
 
@@ -163,6 +178,12 @@
         --btn-medium-height: 34px;
         --btn-small-height: 28px;
         --button-icon-size: 20px;
+    }
+
+    @media only screen and (max-width: 480px) {
+        .footer & {
+            width: 100%;
+        }
     }
 }
 

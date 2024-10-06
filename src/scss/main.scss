@@ -37,6 +37,12 @@
 @use './elements/marquee';
 @use './elements/video';
 @use './elements/block';
+@use './elements/pagination';
 
 /* Vendors */
 @use './base/swiper';
+
+
+/* * {
+    outline: 1px solid green;
+} */

@@ -4,7 +4,7 @@ import * as form from './modules/form/form'
 import * as menu from './modules/menu/menu'
 // import * as marquee from './modules/marquee/marquee'
 import * as accordion from './modules/accordion/accordion'
-import * as slider from './modules/slider/slider'
+// import * as slider from './modules/slider/slider'
 import * as preloader from './modules/preloader/preloaderController'
 
 // Модель классов для решений FORWEB.AGENCY
@@ -26,6 +26,5 @@ document.addEventListener('DOMContentLoaded', function(e) {
     menu.scroll()
     form.validate()
     accordion.init()
-    slider.main()
 })
 

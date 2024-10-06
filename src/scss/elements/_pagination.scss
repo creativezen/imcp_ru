@@ -1,0 +1,126 @@
+@use '../mixins/fluid-size' as size;
+@use '../mixins/disable-mob-hover' as mobile;
+
+
+.pagination {
+    --pagination-size: 40px;
+
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    @include size.calculate(gap, 480px, 1460px, 6px, 10px);
+
+    &__arrow {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: var(--pagination-size);
+
+        svg {
+            width: 7px;
+            height: 12px;
+            fill: var(--black-gray);
+        }
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+        @include size.calculate(gap, 480px, 1460px, 3px, 6px);
+    }
+
+    &__item,
+    &__current {
+        width: var(--pagination-size);
+    }
+    
+    &__item,
+    &__dots,
+    &__current {
+        height: var(--pagination-size);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        font-weight: 500;
+        line-height: 1;
+        
+        * {
+            font-size: inherit;
+            line-height: inherit;
+            color: inherit;
+            transition: none;
+        }
+    }
+    
+    &__item {
+        align-items: center;
+        width: var(--pagination-size);
+        border: 1px solid var(--gray-border);
+        @include size.calculate(font-size, 480px, 1460px, 13px, 16px);
+        color: rgba(5,9,15, 0.3);
+        transition: var(--fast);
+
+        @include mobile.hover {
+            border-color: var(--black-gray);
+            color: var(--black-gray);
+        }
+        
+        a::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+        }
+    }
+    
+    /* Индекс точки */
+    &__dots {
+        width: 26px;
+        border: none;
+        align-items: flex-end;
+        padding-bottom: 1px;
+        @include size.calculate(font-size, 480px, 1460px, 17px, 22px);
+        color: var(--gray);
+        letter-spacing: 0.08em;
+    }
+    
+    /* Активный индекс */
+    &__current {
+        align-items: center;
+        background-color: var(--beige-accent);
+    }
+
+    &__arrow {
+        position: relative;
+
+        @include mobile.hover {
+            svg {
+                fill: var(--beige-accent);
+            }
+        }
+
+        svg {
+            fill: var(--black-gray);
+        }
+
+        a::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+        }
+
+        &.noactive {
+            svg {
+                fill: var(--gray-border);
+            }
+        }
+    }
+
+
+    @media only screen and (max-width: 680px) {
+        --pagination-size: 34px;
+    }
+}
