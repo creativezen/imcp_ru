@@ -9,7 +9,7 @@ export function init() {
     const marqueeArray = document.querySelectorAll('.js-marquee')
     
     let i = 0;
-    let speed = 0.3
+    let speed = 0.2
     
     marqueeArray?.forEach(marquee => {
         

@@ -89,7 +89,7 @@
 		}
 
         li + li {
-            @include size.calculate(margin-left, 1080px, 1460px, 20px, 30px);
+            @include size.calculate(margin-left, 1080px, 1460px, 16px, 24px);
         }
 
         .sub-menu {
@@ -113,6 +113,15 @@
                     @include mobile.hover {
                         background-color: var(--black-gray);
                     }
+                }
+
+                &.menu-summary {
+                    padding: 12px;
+                    padding-inline: 20px;
+                    justify-content: flex-start;
+                    border-bottom: 1px solid var(--black-gray);
+                    font-weight: 500;
+                    color: var(--white);
                 }
             }
 

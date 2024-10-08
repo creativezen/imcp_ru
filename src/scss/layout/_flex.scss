@@ -2,6 +2,8 @@
 @use '../mixins/disable-mob-hover' as mobile;
 
 .flex-properties {
+    --flex-gap: calc(var(--space) * 0.4);
+
     display: flex;
 
 
@@ -20,6 +22,22 @@
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
+    }
+
+    &[data-gap="1"] {
+        gap: var(--flex-gap);
+    }
+
+    &[data-gap="2"] {
+        gap: calc(var(--flex-gap) * 2);
+    }
+
+    &[data-gap="3"] {
+        gap: calc(var(--flex-gap) * 3);
+    }
+
+    &[data-gap="4"] {
+        gap: calc(var(--flex-gap) * 4);
     }
 }
 

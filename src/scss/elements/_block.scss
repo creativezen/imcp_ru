@@ -211,6 +211,14 @@
             @include size.calculate(height, 480px, 780px, 280px, 400px);
         }
     }
+
+    @media only screen and (max-width: 480px) {
+        &__form {
+            .button {
+                width: 100%;
+            }
+        }
+    }
 }
 
 
@@ -302,7 +310,7 @@
     
     &__spacing {
         position: relative;
-        @include size.calculate(padding-top, 480px, 1460px, 40px, 70px);
+        @include size.calculate(padding-top, 480px, 1460px, 40px, 100px);
         @include size.calculate(padding-bottom, 480px, 1460px, 40px, 100px);
         @include size.calculate(padding-inline, 480px, 1460px, 22px, 60px);
         display: flex;

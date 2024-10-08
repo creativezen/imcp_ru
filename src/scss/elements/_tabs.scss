@@ -1,0 +1,12 @@
+@use '../mixins/fluid-size' as size;
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    @include size.calculate(gap, 480px, 1460px, 8px, 12px);
+
+    &.centered {
+        justify-content: center;
+    }
+}

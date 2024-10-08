@@ -155,7 +155,8 @@
 
         /* для крупного шрифта */
         &.accent {
-            @include size.calculate(font-size, 480px, 1460px, 18px, 26px);
+            @include size.calculate(font-size, 480px, 1460px, 18px, 24px);
+            letter-spacing: -0.02em;
         }
 
         .dark & {
@@ -759,6 +760,8 @@
 
 /* карточка контактов */
 .card-contact {
+    --contact-social-size: 48px;
+
     @extend .card-properties;
 
     @include size.calculate(padding-inline, 480px, 1460px, 22px, 40px);
@@ -776,22 +779,6 @@
 
     &__header + &__form {
         @include size.calculate(margin-top, 480px, 1460px, 20px, 40px);
-    }
-
-    &__form {
-        .form__footer {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-
-            [class*='button'] {
-                width: auto;
-            }
-        }
-
-        .form__footer > * + * {
-            margin-top: 0;
-        }
     }
 
     &__footer {
@@ -815,10 +802,13 @@
     &__social {
         @include mobile.hover {
             svg {
-                fill: var(--black-blue);
+                fill: var(--black);
             }
         }
+
         svg {
+            width: var(--contact-social-size);
+            height: var(--contact-social-size);
             fill: var(--beige-accent);
             transition: var(--fast);
         }
@@ -840,6 +830,21 @@
                 [class*='button'] {
                     width: 100%;
                 }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 680px) {
+        --contact-social-size: 38px;
+    }
+
+    @media only screen and (max-width: 480px) {
+        &__header {
+            flex-direction: column;
+            align-items: center;
+
+            > * + * {
+                margin-left: 0;
             }
         }
     }
@@ -1048,7 +1053,8 @@
         position: relative;
         flex-shrink: 0;
         width: 100%;
-        @include size.calculate(height, 480px, 1460px, 200px, 490px);
+        height: auto;
+        @include size.calculate(min-height, 480px, 1460px, 200px, 490px);
         overflow: hidden;
 
         img {
@@ -1075,7 +1081,7 @@
     }
 
     &__header {
-        @include size.calculate(font-size, 480px, 1460px, 26px, 60px);
+        @include size.calculate(font-size, 480px, 1460px, 24px, 56px);
 
          * {
             font-size: inherit !important;
@@ -1118,5 +1124,17 @@
     @media only screen and (max-width: 680px) {
         --board-badge-space: 1em;
         --board-gap: 16px;
+    }
+}
+
+
+/* Карточка с флагами */
+.card-flag {
+    @extend .card;
+    padding: 0;
+    background-color: transparent;
+
+    * + small {
+        margin-top: 4px;
     }
 }

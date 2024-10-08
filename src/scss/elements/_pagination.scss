@@ -36,6 +36,7 @@
     &__item,
     &__current {
         width: var(--pagination-size);
+        @include size.calculate(font-size, 480px, 1460px, 12px, 16px);
     }
     
     &__item,
@@ -60,7 +61,6 @@
         align-items: center;
         width: var(--pagination-size);
         border: 1px solid var(--gray-border);
-        @include size.calculate(font-size, 480px, 1460px, 13px, 16px);
         color: rgba(5,9,15, 0.3);
         transition: var(--fast);
 
@@ -121,6 +121,10 @@
 
 
     @media only screen and (max-width: 680px) {
-        --pagination-size: 34px;
+        --pagination-size: 28px;
+
+        &__list {
+            gap: 2px;
+        }
     }
 }

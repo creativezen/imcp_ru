@@ -75,7 +75,8 @@
 	*:not(h2):not(h3):not(h4):not(h5):not(h6) + i,
 	*:not(h2):not(h3):not(h4):not(h5):not(h6) + blockquote,
 	*:not(h2):not(h3):not(h4):not(h5):not(h6) + .blockquote,
-	*:not(h2):not(h3):not(h4):not(h5):not(h6) + img {
+	*:not(h2):not(h3):not(h4):not(h5):not(h6) + img,
+    *:not(h2):not(h3):not(h4):not(h5):not(h6) + iframe {
 		margin-top: calc(var(--scale) * 0.8);
 	}
 
@@ -202,6 +203,11 @@
         gap: 16px;
     }
 
+    iframe {
+        display: block;
+        margin-inline: auto;
+    }
+
     @media only screen and (max-width: 780px) {
         .top-offset & {
             margin-top: -240px;
@@ -217,6 +223,13 @@
             .article-flex & {
                 width: 100%;
             }
+        }
+    }
+
+    @media only screen and (max-width: 680px) {
+        iframe {
+            width: 100%;
+            height: auto;
         }
     }
 

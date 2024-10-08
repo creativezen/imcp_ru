@@ -230,7 +230,7 @@ input[type='radio'] {
 /* Form */
 .form {
 	--form-space: 24px;
-	--input-margin: 20px;
+	--input-margin: 16px;
 
     width: 100%;
 
@@ -310,11 +310,6 @@ input[type='radio'] {
     }
 
 	&__footer {
-
-        .button {
-            width: 100%;
-        }
-
 		> * + * {
 			margin-top: var(--form-space);
 		}

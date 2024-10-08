@@ -1,12 +1,15 @@
 @use '../mixins/fluid-size' as size;
+@use '../layout/article';
 
 .section-settings {
+    --stream-nagative: -160px;
+
 	overflow-x: clip;
 
 	&.stream {
 		/* Вертикальные отступы между секциями */
-		@include size.calculate(padding-top, 480px, 1460px, 40px, 100px);
-		@include size.calculate(padding-bottom, 480px, 1460px, 40px, 100px);
+		@include size.calculate(padding-top, 480px, 1460px, 60px, 140px);
+		@include size.calculate(padding-bottom, 480px, 1460px, 60px, 140px);
 
 		&[data-stream-top='no'] {
 			padding-top: 0 !important;
@@ -15,10 +18,14 @@
 		&[data-stream-bottom='no'] {
 			padding-bottom: 0 !important;
 		}
+
+        &[data-stream-negative="yes"] {
+            @include size.calculate(padding-bottom, 480px, 1460px, 120px, 240px);
+        }
 	}
 
-    &[data-background="gray-light"] {
-        background-color: var(--gray-light);
+    &.stream-negative {
+        @include size.calculate(margin-top, 480px, 1460px, -80px, -160px);
     }
 
 	&.breadcrumbs {
@@ -29,7 +36,12 @@
         background-color: var(--black-blue);
     }
 
-    &.bg-gray {
+    &.bg-gray-dark {
+        background-color: var(--black-gray);
+    }
+
+    &.bg-gray,
+    &.bg-gray-light {
         background-color: var(--gray-light);
     }
 
@@ -54,14 +66,25 @@
 		position: inherit;
 
         &.centered {
-            text-align: center
+            text-align: center;
+
+            &[data-mobile="580"] {
+                @media only screen and (min-width: 580px) {
+                    text-align: left;
+                }
+            }
+        }
+
+        &.stream-top,
+        & + &.stream-top {
+            @include size.calculate(margin-top, 480px, 1460px, 40px, 100px);
         }
 	}
 
 	&__header + &__body,
     &__header + &__slider,
 	&__header + &__footer {
-		@include size.calculate(margin-top, 480px, 1460px, 20px, 40px);
+		@include size.calculate(margin-top, 480px, 1460px, 30px, 60px);
 	}
 
 	&__body + &__footer,
@@ -69,6 +92,16 @@
     &__slider + &__footer {
 		@include size.calculate(margin-top, 480px, 1460px, 24px, 40px);
 	}
+
+    &__footer {
+        &.blog {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+    }
 
     &__slider-body + &__slider-footer {
 		@include size.calculate(margin-top, 480px, 1460px, 24px, 40px);
@@ -126,9 +159,28 @@
         }
     }
 
+    &__shadow {
+        @extend .article;
+
+        @include size.calculate(padding-top, 480px, 1460px, 40px, 100px);
+        @include size.calculate(padding-bottom, 480px, 1460px, 40px, 100px);
+
+        [class*="__body"] + [class*="__body"] {
+            @include size.calculate(margin-top, 480px, 1460px, 40px, 80px);
+        }   
+    }
+
     @media only screen and (max-width: 780px) {
         &__programm {
             flex-direction: column;
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        &__footer {
+            .button {
+                width: 100%;
+            }
         }
     }
 }

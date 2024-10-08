@@ -100,7 +100,8 @@
     
     @media only screen and (max-width: 680px) {
         /* регулируем вертикальный отступ между потомками на мобильных */
-        --grid-gap: calc(var(--space) * 1.2);
+        /* --grid-gap: calc(var(--space) * 1.2); */
+        --grid-gap: 12px;
         --header-height: 66px;
         --input-filter-height: 44px;
         --font-height: 1.4;

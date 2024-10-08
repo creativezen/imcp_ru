@@ -1,0 +1,53 @@
+@use '../mixins/fluid-size' as size;
+
+
+.plate-settings {
+    --plate-spacing: 8px 12px;
+    --plate-border: 8px;
+
+    padding: var(--plate-spacing);
+    background-color: var(--white);
+    border-radius: var(--plate-border);
+    color: var(--black);
+    font-weight: 500;
+
+    > * {
+        color: inherit;
+        font-weight: inherit;
+    }
+
+    &.bordered {
+        border: 1px solid var(--bray-border);
+    }
+
+    &.centered,
+    .centered & {
+        text-align: center;
+
+        * {
+            text-align: inherit;
+        }
+    }
+
+    &.gray {
+        color: var(--gray-light);
+    }
+
+    &.black {
+        background-color: var(--black);
+        color: var(--white);
+    }
+
+    &.beige {
+        background-color: var(--beige-accent);
+    }
+
+    @media only screen and (max-width: 680px) {
+        --plate-border: 4px;
+        --plate-spacing: 6px 8px;
+    }
+}
+
+.plate {
+    @extend .plate-settings;
+}

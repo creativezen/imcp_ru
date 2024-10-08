@@ -199,6 +199,8 @@ small {
         color: var(--gray);
     }
 
+    .section__header &,
+    .section__body &,
     .section__footer & {
         display: block;
     }
@@ -260,8 +262,17 @@ ul:not([class]) {
         margin-top: calc(var(--scale) * 1.4);
     }
 
-    &.centered {
+    &.centered,
+    .centered & {
         text-align: center;
+
+        /* Центрирование вступает на мобильных устройствах */
+        &[data-mobile="580"] {
+            @media only screen and (min-width: 580px) {
+                text-align: left;
+                margin-inline: 0;
+            }
+        }
     }
 
     &.gradient {
@@ -270,6 +281,11 @@ ul:not([class]) {
         -webkit-text-fill-color: transparent;
         background-clip: text;
         text-fill-color: transparent;
+    }
+
+    /* Компенсируем высоту строки по отношеню к верхнему отступу блок-секции */
+    .section__header & {
+        margin-top: -0.36em;
     }
 }
 
@@ -312,12 +328,21 @@ ul:not([class]) {
 }
 
 .tagline {
-    @extend h6;
-
+    @include size.calculate(font-size, 480px, 1460px, 17px, 24px);
     max-width: 1100px;
     
-    .centered & {
+    .centered &,
+    &.centered {
         margin-inline: auto;
+        text-align: center;
+
+        /* Центрирование вступает на мобильных устройствах */
+        &[data-mobile="580"] {
+            @media only screen and (min-width: 580px) {
+                text-align: left;
+                margin-inline: 0;
+            }
+        }
     }
 }
 

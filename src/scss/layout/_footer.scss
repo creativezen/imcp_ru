@@ -2,6 +2,8 @@
 @use '../mixins/disable-mob-hover' as mobile;
 
 .footer {
+    --footer-social-size: 44px;
+
     /* прижимаем футре к нижней границе экрана */
     margin-top: auto;
     background-color: var(--black-gray);
@@ -96,6 +98,8 @@
         }
 
         svg {
+            width: var(--footer-social-size);
+            height: var(--footer-social-size);
             fill: var(--gray);
         }
     }
@@ -183,6 +187,8 @@
     }
 
     @media only screen and (max-width: 680px) {
+        --footer-social-size: 34px;
+
         &__politic {
             flex-direction: column;
         }

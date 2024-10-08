@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('blocks/head.html')
+
+<body>
+    @@include('blocks/header.html')
+
+    <section id="hero" class="section hero">
+        <div class="background-hero-large"></div>
+        <div class="container">
+            <div class="hero__content">
+                <div class="banner-flex no-padding">
+                    <div class="banner-flex__content">
+                        <div class="banner-flex__text">
+                            <h1 class="title-hero">
+                                <span class="white">Ошибка <span class="beige">404...</span></span>
+                            </h1>
+                            <p class="tagline white">К сожалению такая страница не найдена</p>
+                            <a href="#" class="button"><span>На главную</span></a>
+                        </div>
+                        <div class="banner-flex__img img-404">
+                            <img loading="lazy" src="img/img-404@2x.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @@include('blocks/footer.html')
+    @@include('blocks/mobile-nav.html')
+    @@include('blocks/modals.html')
+</body>
+
+</html>

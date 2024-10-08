@@ -23,6 +23,30 @@
             }
         }
     }
+
+    &[data-col-gap="2"] {
+        column-gap: calc(var(--grid-gap) * 2);
+    }
+
+    &[data-col-gap="3"] {
+        column-gap: calc(var(--grid-gap) * 3);
+    }
+
+    &[data-col-gap="4"] {
+        column-gap: calc(var(--grid-gap) * 4);
+    }
+
+    &[data-row-gap="2"] {
+        row-gap: calc(var(--grid-gap) * 2);
+    }
+
+    &[data-row-gap="3"] {
+        row-gap: calc(var(--grid-gap) * 3);
+    }
+
+    &[data-row-gap="4"] {
+        row-gap: calc(var(--grid-gap) * 4);
+    }
 }
 
 /* grid group */

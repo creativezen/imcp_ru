@@ -27,7 +27,7 @@
         }
 
         li + * {
-            @include size.calculate(margin-top, 480px, 1460px, 4px, 8px);
+            margin-top: 8px;
         }
     }
 
