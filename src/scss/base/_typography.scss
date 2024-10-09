@@ -287,6 +287,10 @@ ul:not([class]) {
     .section__header & {
         margin-top: -0.36em;
     }
+
+    @media only screen and (max-width: 380px) {
+       font-size: 40px;
+    }
 }
 
 .title-hero {
@@ -324,6 +328,10 @@ ul:not([class]) {
         & > * {
             display: inline;
         }
+    }
+
+    @media only screen and (max-width: 380px) {
+        font-size: 40px;
     }
 }
 

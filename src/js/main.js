@@ -2,10 +2,9 @@ import ForwebModal from './modules/modal/ForwebModal.js'
 
 import * as form from './modules/form/form'
 import * as menu from './modules/menu/menu'
-// import * as marquee from './modules/marquee/marquee'
 import * as accordion from './modules/accordion/accordion'
-// import * as slider from './modules/slider/slider'
-import * as preloader from './modules/preloader/preloaderController'
+// import * as preloader from './modules/preloader/preloaderController'
+import * as scroll from './modules/scroll/scroll'
 
 // Модель классов для решений FORWEB.AGENCY
 const FORWEB_UI = {
@@ -26,5 +25,6 @@ document.addEventListener('DOMContentLoaded', function(e) {
     menu.scroll()
     form.validate()
     accordion.init()
+    scroll.top()
 })
 
