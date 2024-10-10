@@ -75,6 +75,7 @@
         padding: 40px;
         padding-inline: 22px;
         @include size.calculate(font-size, 480px, 1460px, 18px, 22px);
+        overflow-y: auto;
 
         li {
             a {
