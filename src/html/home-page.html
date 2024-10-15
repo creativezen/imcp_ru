@@ -6,6 +6,7 @@
     @@include('blocks/header.html')
 
     <main id="video">
+        <!-- Главный экран -->
         <section id="hero" class="section hero">
             <div class="background-hero-large"></div>
             <div class="container">
@@ -14,8 +15,23 @@
                         <span class="beige">Академия</span>
                         <span class="white">Экспоненциального Коучинга</span>
                     </h1>
-                    <div class="accent white">
-                        <p>Помогаем совершать прорыв за прорывом в жизни, бизнесе и здоровье.</p>
+                    <div class="accent slide-string white">
+                        <div class="slider swiper js-slider" data-slider-name="home-tagline" data-slider-type="vertical" data-slider-auto="true" data-slider-loop="true">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <p>Помогаем совершать прорыв за прорывом в жизни, бизнесе и здоровье.</p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <p>Помогаем совершать прорыв за прорывом в жизни, бизнесе и здоровье. Помогаем совершать прорыв за прорывом в жизни, бизнесе и здоровье.</p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <p>Помогаем совершать прорыв за прорывом в жизни, бизнесе и здоровье.</p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <p>Помогаем совершать прорыв за прорывом в жизни, бизнесе и здоровье.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="button-group">
                         <a href="#" class="button zero white"><span>Услуги коучинга</span></a>
@@ -294,74 +310,96 @@
                         <h2 class="title centered">Быть продуктом своего продукта</h2>
                         <p class="tagline centered">— один из главных принципов экспоненциального коучинга.Мы подтверждаем его на собственном примере из года в год:</p>
                     </div>
-                    <div class="section__body">
-                        <div class="marquee facts js-marquee">
-                            <div class="marquee__content">
-                                <span class="marquee__item">
-                                    <div class="card bordered">
-                                        <div class="card__statistic">
-                                            <div class="card__statistic_value">
-                                                <h4 class="beige">50 000</h4>
+                    <div class="section__slider">
+                        <div class="section__slider-body">
+                            <div class="slider swiper js-slider" data-slider-name="home-facts" data-slider-type="default" data-slider-auto="true" data-slider-loop="true">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="card bordered">
+                                            <div class="card__statistic">
+                                                <div class="card__statistic_value">
+                                                    <h4 class="beige">50 000</h4>
+                                                </div>
+                                                <p class="card__statistic_name">часов</p>
                                             </div>
-                                            <p class="card__statistic_name">часов</p>
-                                        </div>
-                                        <div class="card__body no-margin">
-                                            <p>Провели более 50 000 часов индивидуальных коуч-сессий</p>
+                                            <div class="card__body no-margin">
+                                                <p>Провели более 50 000 часов индивидуальных коуч-сессий</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </span>
-                                <span class="marquee__item">
-                                    <div class="card bordered">
-                                        <div class="card__statistic">
-                                            <div class="card__statistic_value">
-                                                <h4 class="beige">15 000</h4>
+                                    <div class="swiper-slide">
+                                        <div class="card bordered">
+                                            <div class="card__statistic">
+                                                <div class="card__statistic_value">
+                                                    <h4 class="beige">15 000</h4>
+                                                </div>
+                                                <p class="card__statistic_name">коуч-сессий</p>
                                             </div>
-                                            <p class="card__statistic_name">коуч-сессий</p>
-                                        </div>
-                                        <div class="card__body no-margin">
-                                            <p>Работаем с клиентами из 93 стран, которые говорят на 26 языках</p>
+                                            <div class="card__body no-margin">
+                                                <p>Работаем с клиентами из 93 стран, которые говорят на 26 языках</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </span>
-                                <span class="marquee__item">
-                                    <div class="card bordered">
-                                        <div class="card__statistic">
-                                            <div class="card__statistic_value">
-                                                <h4 class="beige">25 000</h4>
+                                    <div class="swiper-slide">
+                                        <div class="card bordered">
+                                            <div class="card__statistic">
+                                                <div class="card__statistic_value">
+                                                    <h4 class="beige">25 000</h4>
+                                                </div>
+                                                <p class="card__statistic_name">часов</p>
                                             </div>
-                                            <p class="card__statistic_name">часов</p>
-                                        </div>
-                                        <div class="card__body no-margin">
-                                            <p>Провели более 25 000 часов тренингов</p>
+                                            <div class="card__body no-margin">
+                                                <p>Провели более 25 000 часов тренингов</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </span>
-                                <span class="marquee__item">
-                                    <div class="card bordered">
-                                        <div class="card__statistic">
-                                            <div class="card__statistic_value">
-                                                <h4 class="beige">150 000</h4>
+                                    <div class="swiper-slide">
+                                        <div class="card bordered">
+                                            <div class="card__statistic">
+                                                <div class="card__statistic_value">
+                                                    <h4 class="beige">150 000</h4>
+                                                </div>
+                                                <p class="card__statistic_name">студентов</p>
                                             </div>
-                                            <p class="card__statistic_name">студентов</p>
-                                        </div>
-                                        <div class="card__body no-margin">
-                                            <p>Обучили более 150 000 студентов</p>
+                                            <div class="card__body no-margin">
+                                                <p>Обучили более 150 000 студентов</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </span>
-                                <span class="marquee__item">
-                                    <div class="card bordered">
-                                        <div class="card__statistic">
-                                            <div class="card__statistic_value">
-                                                <h4 class="beige">NPS</h4>
+                                    <div class="swiper-slide">
+                                        <div class="card bordered">
+                                            <div class="card__statistic">
+                                                <div class="card__statistic_value">
+                                                    <h4 class="beige">NPS</h4>
+                                                </div>
+                                                <p class="card__statistic_name">82%</p>
                                             </div>
-                                            <p class="card__statistic_name">82%</p>
-                                        </div>
-                                        <div class="card__body no-margin">
-                                            <p>Среднее NPS по программам IMCP — 82%*</p>
+                                            <div class="card__body no-margin">
+                                                <p>Среднее NPS по программам IMCP — 82%*</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section__slider-footer">
+                            <div class="slider-controls">
+                                <div class="slider-arrows">
+                                    <div class="slider-btn prev-home-facts">
+                                        <button class="button-slider prev">
+                                            <svg width="26" height="28" viewBox="0 0 26 28" fill="none">
+                                                <path d="M1.52146 15.4462L10.2742 27.5L11.7367 25.4859L4.43026 15.4242H25.5V12.5758H4.43026L11.7367 2.51406L10.2742 0.5C10.2742 0.5 1.79956 12.1699 1.52146 12.5538C1.24335 12.9376 0.5 14 0.5 14C0.5 14 1.24335 15.0624 1.52146 15.4462Z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="slider-btn next-home-facts">
+                                        <button class="button-slider next">
+                                            <svg width="26" height="28" viewBox="0 0 26 28" fill="none">
+                                                <path d="M24.4785 15.4462L15.7258 27.5L14.2633 25.4859L21.5697 15.4242H0.5V12.5758H21.5697L14.2633 2.51406L15.7258 0.5C15.7258 0.5 24.2004 12.1699 24.4785 12.5538C24.7566 12.9376 25.5 14 25.5 14C25.5 14 24.7566 15.0624 24.4785 15.4462Z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -376,7 +414,6 @@
                                     </div>
                                     <div class="section__footer">
                                         <a href="#" class="button"><span>Подробнее об Академии</span></a>
-                                        <small class="gray">* NPS — метрика уровня лояльности студентов. Показывает процент выпускников, готовых рекомендовать обучени</small>
                                     </div>
                                 </div>
                             </div>
@@ -394,9 +431,6 @@
             <div class="container">
                 <div class="section__body">
                     <div class="block-author">
-                        <div class="block-author__photo">
-                            <img src="img/block/img-block-author-01_2x.jpg" alt="">
-                        </div>
                         <div class="block-author__content">
                             <div class="block-author__header">
                                 <small>Основатель Академии</small>
@@ -410,6 +444,9 @@
                                     <li>Более 150 000 студентов по всему миру</li>
                                 </ul>
                             </div>
+                        </div>
+                        <div class="block-author__photo">
+                            <img src="img/block/img-block-author-01_2x.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -489,7 +526,7 @@
                 </div>
                 <div class="section__body">
                     <div class="grid-group">
-                        <div class="grid-child" data-grid="4">
+                        <div class="grid-child" data-grid="6">
                             <div class="card dark centered auto">
                                 <!-- не выводим блок с картинкой, если она не назначена -->
                                 <div class="card__img">
@@ -511,29 +548,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="grid-child" data-grid="4">
-                            <div class="card dark centered auto">
-                                <!-- не выводим блок с картинкой, если она не назначена -->
-                                <div class="card__img">
-                                    <img loading="lazy" src="./img/home/img-dark-card-02_2x.jpg" alt="">
-                                    <div class="badge-product">Программа</div>
-                                </div>
-                                <div class="card__header">
-                                    <div class="card__title">
-                                        <h6>Система_20</h6>
-                                    </div>
-                                </div>
-                                <div class="card__body">
-                                    <p>Программа помогает сделать первые шаги в бизнес-коучинге и научиться трансформировать лидеров компаний в легендарных руководителей</p>
-                                    <p>По окончании обучения студент получает диплом Академии о прохождении программы.</p>
-                                </div>
-                                <!-- не выводим футер, если кнопка не назначена -->
-                                <div class="card__footer">
-                                    <a href="#" class="button zero white medium"><span>Узнать подробнее</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid-child" data-grid="4">
+                        <div class="grid-child" data-grid="6">
                             <div class="card dark centered auto">
                                 <!-- не выводим блок с картинкой, если она не назначена -->
                                 <div class="card__img">
@@ -716,7 +731,7 @@
                     <div class="section__slider">
                         <div class="section__slider-body">
                             <!-- скрипт вызывается из файла js/feedbacks.bundle.js -->
-                            <div class="slider swiper js-slider" data-slider-name="mentors">
+                            <div class="slider swiper js-slider" data-slider-name="mentors" data-slider-type="default">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <div class="card beige-sky centered">
@@ -936,93 +951,11 @@
                     <p class="tagline centered">Данные результаты являются индивидуальными в результате обучения и применения материалов по программам Академии</p>
                 </div>
                 <div class="section__body">
-                    <div class="section__slider">
-                        <div class="section__slider-body">
-                            <!-- скрипт вызывается из файла js/feedbacks.bundle.js -->
-                            <div class="slider swiper js-slider" data-slider-name="histories" data-slider-center="true" data-slider-loop="true">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="card-history bordered">
-                                            <div class="card-history__photo">
-                                                <img loading="lazy" src="img/home/img-card-history-01_2x.jpg" alt="Ирина Сальдо">
-                                            </div>
-                                            <div class="card-history__content">
-                                                <div class="card-history__header">
-                                                    <div class="badge-card">История</div>
-                                                    <h5>Ирина Сальдо</h5>
-                                                </div>
-                                                <div class="card-history__body">
-                                                    <p><em>«Кратно увеличила продажи, потому что “Экспонента” научила видеть потребности людей любого уровня»</em></p>
-                                                    <a href="#" class="link">Читать полностью</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="card-history bordered">
-                                            <div class="card-history__photo">
-                                                <img loading="lazy" src="img/home/img-card-history-02_2x.jpg" alt="Мария Рыбина">
-                                            </div>
-                                            <div class="card-history__content">
-                                                <div class="card-history__header">
-                                                    <div class="badge-card">История</div>
-                                                    <h5>Мария Рыбина</h5>
-                                                </div>
-                                                <div class="card-history__body">
-                                                    <p><em>На одной из сессий по Голове СЕО клиент мне сказал: «Ого, ты мне только что сэкономила 10 миллионов рублей»</em></p>
-                                                    <a href="#" class="link">Читать полностью</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="card-history bordered">
-                                            <div class="card-history__photo">
-                                                <img loading="lazy" src="img/home/img-card-history-03_2x.jpg" alt="Ирина Головина">
-                                            </div>
-                                            <div class="card-history__content">
-                                                <div class="card-history__header">
-                                                    <div class="badge-card">История</div>
-                                                    <h5>Ирина Головина</h5>
-                                                </div>
-                                                <div class="card-history__body">
-                                                    <p><em>«Поставила на „Экспоненту“ все: я знала, что программа меня изменит»</em></p>
-                                                    <a href="#" class="link">Читать полностью</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="section__slider-footer">
-                            <div class="slider-controls">
-                                <div class="slider-arrows">
-                                    <div class="slider-btn prev-histories">
-                                        <button class="button-slider prev">
-                                            <svg width="26" height="28" viewBox="0 0 26 28" fill="none">
-                                                <path d="M1.52146 15.4462L10.2742 27.5L11.7367 25.4859L4.43026 15.4242H25.5V12.5758H4.43026L11.7367 2.51406L10.2742 0.5C10.2742 0.5 1.79956 12.1699 1.52146 12.5538C1.24335 12.9376 0.5 14 0.5 14C0.5 14 1.24335 15.0624 1.52146 15.4462Z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <div class="slider-btn next-histories">
-                                        <button class="button-slider next">
-                                            <svg width="26" height="28" viewBox="0 0 26 28" fill="none">
-                                                <path d="M24.4785 15.4462L15.7258 27.5L14.2633 25.4859L21.5697 15.4242H0.5V12.5758H21.5697L14.2633 2.51406L15.7258 0.5C15.7258 0.5 24.2004 12.1699 24.4785 12.5538C24.7566 12.9376 25.5 14 25.5 14C25.5 14 24.7566 15.0624 24.4785 15.4462Z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="section__body">
                     <div id="feedbacks" class="section__slider">
                         <div class="section__slider">
                             <div class="section__slider-body">
                                 <!-- скрипт вызывается из файла js/feedbacks.bundle.js -->
-                                <div class="slider swiper js-slider" data-slider-name="feedbacks-screen" data-slider-center="true" data-slider-loop="true">
+                                <div class="slider swiper js-slider" data-slider-name="feedbacks-screen" data-slider-type="default" data-slider-center="true" data-slider-loop="true">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <div class="card-feedback">
@@ -1227,7 +1160,7 @@
                 <div class="section__slider">
                     <div class="section__slider-body">
                         <!-- скрипт вызывается из файла js/feedbacks.bundle.js -->
-                        <div class="slider swiper js-slider" data-slider-name="events">
+                        <div class="slider swiper js-slider" data-slider-name="events" data-slider-type="default">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="card-event">
@@ -1320,53 +1253,53 @@
                     <h2 class="title centered">Упоминания в СМИ</h2>
                 </div>
                 <div class="section__body">
-                    <div class="marquee js-marquee">
-                        <div class="marquee__content">
-                            <span class="marquee__item">
+                    <div class="slider swiper js-slider" data-slider-name="home-partners" data-slider-type="marquee">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
                                 <div class="card-logo bordered">
                                     <img loading="lazy" src="./img/home/img-logo-partner-01.jpg" alt="Logo">
                                 </div>
-                            </span>
-                            <span class="marquee__item">
+                            </div>
+                            <div class="swiper-slide">
                                 <div class="card-logo bordered">
                                     <img loading="lazy" src="./img/home/img-logo-partner-02.jpg" alt="Logo">
                                 </div>
-                            </span>
-                            <span class="marquee__item">
+                            </div>
+                            <div class="swiper-slide">
                                 <div class="card-logo bordered">
                                     <img loading="lazy" src="./img/home/img-logo-partner-03.jpg" alt="Logo">
                                 </div>
-                            </span>
-                            <span class="marquee__item">
+                            </div>
+                            <div class="swiper-slide">
                                 <div class="card-logo bordered">
                                     <img loading="lazy" src="./img/home/img-logo-partner-04.jpg" alt="Logo">
                                 </div>
-                            </span>
-                            <span class="marquee__item">
+                            </div>
+                            <div class="swiper-slide">
                                 <div class="card-logo bordered">
                                     <img loading="lazy" src="./img/home/img-logo-partner-05.jpg" alt="Logo">
                                 </div>
-                            </span>
-                            <span class="marquee__item">
+                            </div>
+                            <div class="swiper-slide">
                                 <div class="card-logo bordered">
                                     <img loading="lazy" src="./img/home/img-logo-partner-06.jpg" alt="Logo">
                                 </div>
-                            </span>
-                            <span class="marquee__item">
+                            </div>
+                            <div class="swiper-slide">
                                 <div class="card-logo bordered">
                                     <img loading="lazy" src="./img/home/img-logo-partner-07.jpg" alt="Logo">
                                 </div>
-                            </span>
-                            <span class="marquee__item">
+                            </div>
+                            <div class="swiper-slide">
                                 <div class="card-logo bordered">
                                     <img loading="lazy" src="./img/home/img-logo-partner-08.jpg" alt="Logo">
                                 </div>
-                            </span>
-                            <span class="marquee__item">
+                            </div>
+                            <div class="swiper-slide">
                                 <div class="card-logo bordered">
                                     <img loading="lazy" src="./img/home/img-logo-partner-09.jpg" alt="Logo">
                                 </div>
-                            </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1381,7 +1314,6 @@
     @@include('blocks/modals.html')
     <script src="js/main.bundle.js"></script>
     <script src="js/video.bundle.js"></script>
-    <script src="js/marquee.bundle.js"></script>
     <script src="js/slider.bundle.js"></script>
     <script src="js/feedbacks.bundle.js"></script>
 </body>

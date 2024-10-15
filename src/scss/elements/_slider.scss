@@ -9,19 +9,19 @@
             height: 100%;
         }
     }
-    // &[data-slider-name="home-feedbacks"] {
-    //     .swiper-slide {
-    //         @include size.calculate(max-width, 480px, 1460px, 400px, 580px);
-    //         height: auto;
-    //     }
-    // }
 
-    // &[data-slider-name="home-achievements"] {
-    //     .swiper-slide {
-    //         @include size.calculate(max-width, 680px, 1460px, 200px, 325px);
-    //         height: auto;
-    //     }
-    // }
+    /* Специальная надстройка анимации для marquee */
+    &[data-slider-type="marquee"] {
+        .swiper-wrapper {
+            transition-timing-function: linear !important;
+        }
+    }
+
+    &[data-slider-name="home-facts"] {
+        .swiper-slide {
+            @include size.calculate(max-width, 480px, 1460px, 280px, 360px);
+        }
+    }
 
     &[data-slider-name="article-posts"],
     &[data-slider-name="history-caises"],
@@ -49,6 +49,23 @@
             &.swiper-slide-next {
                 opacity: 0.3;
             }
+        }
+    }
+
+    &[data-slider-name="home-partners"] {
+        .swiper-slide {
+            @include size.calculate(width, 480px, 1460px, 130px, 280px);
+            @include size.calculate(height, 480px, 1460px, 60px, 127px);
+        }
+    }
+
+    .slide-string & {
+        max-height: inherit;
+
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
     }
 }

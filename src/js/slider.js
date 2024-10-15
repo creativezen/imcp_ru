@@ -1,5 +1,5 @@
-import * as slider from './modules/slider/slider'
+import * as slider from "./modules/slider/sliderControl";
 
 window.addEventListener('DOMContentLoaded', () => {
-    slider.init()
-})  
+    slider.standart();
+});

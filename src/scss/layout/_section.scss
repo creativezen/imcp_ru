@@ -89,6 +89,7 @@
 
 	&__body + &__footer,
 	&__body + &__body,
+    &__slider + &__body,
     &__slider + &__footer {
 		@include size.calculate(margin-top, 480px, 1460px, 24px, 40px);
 	}

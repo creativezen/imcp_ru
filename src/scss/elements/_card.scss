@@ -523,6 +523,7 @@
         @include size.calculate(font-size, 480px, 1460px, 11px, 14px);
         color: var(--white);
         line-height: 1;
+        text-decoration: none;
     }
 
     &__content {
@@ -739,8 +740,6 @@
 
     @include size.calculate(width, 480px, 1460px, 130px, 280px);
     @include size.calculate(height, 480px, 1460px, 60px, 127px);
-    // width: 280px;
-    // height: 127px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1040,6 +1039,7 @@
     @include mobile.hover {
         transform: translateY(-5px);
 
+        [class*="__body"],
         [class*="__body"] {
             color: var(--black);
         }
@@ -1083,8 +1083,14 @@
     &__header {
         @include size.calculate(font-size, 480px, 1460px, 24px, 56px);
 
-         * {
-            font-size: inherit !important;
+        @include mobile.hover {
+            a {
+                color: var(--beige-text) !important;
+            }
+        }
+        
+        * {
+            font-size: inherit;
         }
         
         a {
@@ -1098,6 +1104,10 @@
 
     &__body {
         transition: var(--fast);
+
+        * {
+            color: inherit !important;
+        }
 
         &.gray {
             color: var(--gray);

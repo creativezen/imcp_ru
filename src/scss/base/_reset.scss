@@ -26,7 +26,7 @@ body {
 }
 
 /* Links */
-a:not([class*='button']) {
+a:not([class*='button']):not([class*='__badge']) {
 	font-size: inherit;
 	font-weight: inherit;
 	line-height: inherit;

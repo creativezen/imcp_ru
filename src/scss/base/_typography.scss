@@ -310,15 +310,11 @@ ul:not([class]) {
     }
 
     & + .accent {
-        @include size.calculate(font-size, 480px, 1460px, 17px, 28px);
+        @extend .tagline;
         text-align: center;
         
         > * + * {
             @include size.calculate(margin-top, 480px, 1460px, 12px, 22px);
-        }
-        
-        .home-page & {
-            @include size.calculate(font-size, 480px, 1460px, 20px, 34px);
         }
     }
 
@@ -350,6 +346,16 @@ ul:not([class]) {
                 text-align: left;
                 margin-inline: 0;
             }
+        }
+    }
+
+    &.slide-string {
+        max-height: 70px;
+    }
+
+    @media only screen and (max-width: 680px) {
+        &.slide-string {
+            max-height: 110px;
         }
     }
 }

@@ -4,7 +4,6 @@ const config = {
 		main: './src/js/main.js',
         feedbacks: './src/js/feedbacks.js',
         video: './src/js/video.js',
-        marquee: './src/js/marquee.js',
         slider: './src/js/slider.js'
 	},
 	output: {

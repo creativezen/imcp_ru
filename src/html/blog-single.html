@@ -6,6 +6,7 @@
     @@include('blocks/header.html')
     
     <main>
+        <!-- Главный экран -->
         <section id="hero" class="section hero">
             <div class="background-hero-large"></div>
             <div class="container">
@@ -31,6 +32,7 @@
             </div>
         </section>
 
+        <!-- Тело статьи -->
         <section class="section stream" data-stream-top="no">
             <div class="container">
                 <div class="section__body">
@@ -156,6 +158,7 @@
             </div>
         </section>
 
+        <!-- Другие статьи -->
         <section class="section stream bg-gray-sky">
             <div class="container">
                 <div class="section__header">
@@ -163,7 +166,7 @@
                 </div>
                 <div class="section__slider">
                     <div class="section__slider-body">
-                        <div class="slider swiper js-slider" data-slider-name="article-posts">
+                        <div class="slider swiper js-slider" data-slider-name="article-posts" data-slider-type="default">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide swiper-slide-prev" style="margin-right: 20px;">
                                     <div class="card-article big">
