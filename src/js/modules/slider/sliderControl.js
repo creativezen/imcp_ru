@@ -23,8 +23,6 @@ export function standart() {
 
         if (view.type == undefined) view.typeError(view.selector)
         
-        console.dir(view.options)
-
         if(view.type == 'default') view.addDefault()
         if(view.type == 'vertical') view.addVertical()
         if(view.type == 'marquee') view.addMarquee()
