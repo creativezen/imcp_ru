@@ -81,20 +81,11 @@
         }
 	}
 
-    &__header {
-        & + &__body,
-        & + &__footer,
-        & + &__slider,
-        & + &__header {
-            @include size.calculate(margin-top, 480px, 1460px, 30px, 60px);
-        }
-    }
-
-	/* &__header + &__body,
+	&__header + &__body,
     &__header + &__slider,
 	&__header + &__footer {
 		@include size.calculate(margin-top, 480px, 1460px, 30px, 60px);
-	} */
+	}
 
 	&__body + &__footer,
 	&__footer + &__body,

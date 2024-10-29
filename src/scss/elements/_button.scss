@@ -91,8 +91,7 @@
         border: 1px solid var(--gray-blue);
 
         @include mobile.hover {
-            border-color: var(--beige-accent);
-            color: var(--beige-accent);
+            border-color: var(--black);
 
             .footer & {
                 border-color: rgba(222, 204, 162, 1);
@@ -107,7 +106,7 @@
         &:active {
             border-color: var(--click-beige);
             background-color: var(--click-beige);
-            color: var(--white);
+            color: var(--black);
 
             svg {
                 fill: var(--white);
