@@ -253,3 +253,20 @@
 .article + .article {
 	margin-top: calc(var(--scale) * 1.4);
 }
+
+.article-notion {
+    background-color: var(--black-blue);
+    color: var(--white);
+    border-left-color: var(--beige-accent);
+    border-left-style: solid;
+    @include size.calculate(border-width, 480px, 1460px, 2px, 4px);
+    @include size.calculate(padding, 480px, 1460px, 22px, 30px);
+
+    h2,h3,h4,h5,h6,strong,b {
+        color: var(--beige-accent) !important;
+    }
+
+    *:not(h2):not(h3):not(h4):not(h5):not(h6) + & {
+        margin-top: calc(var(--scale)* 0.8);
+    }
+}
