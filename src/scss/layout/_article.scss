@@ -119,17 +119,15 @@
     }
 
 	a:not([class]) {
-		margin-top: 15px;
-		display: inline-block;
 		font-weight: inherit;
-		@include size.calculate(font-size, 480px, 1680px, 14px, 18px);
-		line-height: 140%;
-		letter-spacing: -0.03em;
+		font-size: inherit;
+		line-height: inherit;
+		letter-spacing: inherit;
 		color: var(--link-blue);
 		text-decoration: underline;
 
 		&:hover {
-			color: var(--beige-accent);
+			color: var(--black-blue);
 		}
 	}
 
