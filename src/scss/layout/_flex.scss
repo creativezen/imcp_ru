@@ -130,6 +130,10 @@
             }
         }
     }
+
+    .programms & + * {
+        @include size.calculate(margin-top, 480px, 1460px, 20px, 60px);
+    }
 }
 
 .flex-chess {

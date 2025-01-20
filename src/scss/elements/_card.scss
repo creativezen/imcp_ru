@@ -96,6 +96,10 @@
     &.no-padding {
         padding: 0;
     }
+
+    &.no-gap {
+        gap: 0;
+    }
 }
 
 /* карточка нумерованная */
@@ -1146,5 +1150,40 @@
 
     * + small {
         margin-top: 4px;
+    }
+}
+
+/* Карточка год обучения */
+.card-programm {
+    @extend .card;
+
+    [class*="__header"],
+    [class*="__body"] {
+        @include size.calculate(padding, 480px, 1460px, 22px, 40px);
+    }
+
+    [class*="__body"] {
+        line-height: 1.6;
+    }
+
+    [class*="__header"] {
+        background-color: var(--black-blue);
+        text-align: center;
+        color: var(--white);
+
+        > h2,h3,h4,h5,h6 {
+            color: inherit;
+
+        }
+        
+        &.gradient {
+            > h2,h3,h4,h5,h6 {
+                background-image: var(--gradient-beige);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+        }
+
     }
 }

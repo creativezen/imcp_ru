@@ -189,8 +189,12 @@ div {
         color: var(--gray-blue);
     }
 
-    .gray &:not([class]):not(.button span) {
+    .gray:not([class*="card"]) &:not([class]):not(.button span) {
         color: var(--gray);
+    }
+
+    .accent &:not([class]):not(.button span) {
+        @include size.calculate(font-size, 480px, 1460px, 14px, 20px);
     }
 }
 
