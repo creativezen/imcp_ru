@@ -23,10 +23,15 @@
         }
     }
 
+    &[data-slider-name="feedbacks-screen"] {
+        .swiper-slide {
+            @include size.calculate(max-width, 480px, 1460px, 280px, 440px);
+        }
+    }
+
     &[data-slider-name="article-posts"],
     &[data-slider-name="history-caises"],
     &[data-slider-name="events"],
-    &[data-slider-name="feedbacks-screen"],
     &[data-slider-name="histories"] {
         .swiper-slide {
             @include size.calculate(max-width, 480px, 1460px, 280px, 640px);
